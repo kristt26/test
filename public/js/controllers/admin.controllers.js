@@ -498,6 +498,7 @@ function daftarController($scope, helperServices, daftarServices, message, $sce)
         $scope.datas = res;
         console.log(res);
         $.LoadingOverlay("hide");
+        $.LoadingOverlay("hide");
     });
     $scope.save = ()=>{
         message.dialog("Ingin melakukan pendaftaran?", "Ya", "Tidak").then(x=>{

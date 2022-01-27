@@ -1,5 +1,8 @@
 <?= $this->extend('layout/template')?>
 <?= $this->section('content')?>
+<script>
+$.LoadingOverlay("show");
+</script>
 <section class="section">
     <div class="section-header">
         <h1>Dashboard</h1>
@@ -67,6 +70,8 @@
                 </div>
             </div>
         </div>
-
 </section>
+<script>
+$.LoadingOverlay("hide");
+</script>
 <?= $this->endSection()?>

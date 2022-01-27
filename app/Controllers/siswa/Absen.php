@@ -15,7 +15,7 @@ class Absen extends BaseController
     }
     public function index()
     {
-        return view('siswa/biodata');
+        return view('siswa/absen');
     }
 
     public function read()

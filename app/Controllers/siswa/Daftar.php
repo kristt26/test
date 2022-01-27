@@ -31,15 +31,21 @@ class Daftar extends BaseController
         return $this->respond($data);
     }
 
-    public function save()
+    public function post()
     {
-        $data = $this->request->getJSON();
+        $item = $this->request->getJSON();
         try {
             $this->db->transBegin();
-            $this->detail->save($data);
+            $this->detail->save($item);
             if($this->db->transStatus()){
                 $this->db->transCommit();
-                $this->read();                
+                $data['program'] = $this->program->asObject()->findAll();
+                foreach ($data['program'] as $key => $item) {
+                    $item->kelas = $this->kelas->where('id_program', $item->id_program)->findAll();
+                }
+                $data['siswa'] = $this->siswa->where('id_user', session()->get('uid'))->get()->getRow();
+                $data['kursus'] = $this->detail->kursusSiswa(session()->get('uid'));
+                return $this->respond($data);
             }else{
                 $this->db->transRollback();
                 return $this->fail(false);

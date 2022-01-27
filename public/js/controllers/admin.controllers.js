@@ -502,9 +502,12 @@ function daftarController($scope, helperServices, daftarServices, message, $sce)
     });
     $scope.save = ()=>{
         message.dialog("Ingin melakukan pendaftaran?", "Ya", "Tidak").then(x=>{
+            $.LoadingOverlay("show");
             daftarServices.post($scope.model).then(res=>{
                 $("#exampleModal").modal('hide');
                 $scope.model = {};
+                $.LoadingOverlay("hide");
+                $scope.datas = res;
                 message.success('Berhasil', "OK");
             })
         })

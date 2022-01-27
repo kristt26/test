@@ -22,7 +22,6 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/components.css">
-    <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/loading.css">
 
 
 

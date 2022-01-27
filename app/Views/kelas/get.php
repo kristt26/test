@@ -43,5 +43,8 @@
 
         </div>
     </div>
+    <script>
+    $.LoadingOverlay("hide");
+    </script>
 </section>
 <?= $this->endSection()?>

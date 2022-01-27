@@ -69,6 +69,8 @@ $routes->group('admin', function ($routes) {
 // Instruktur
 $routes->group('instruktur', function ($routes) {
     $routes->get('', 'admin\home::index');
+    $routes->get('absen', 'instruktur\Absen::index');
+    $routes->get('laporan', 'instruktur\Laporan::index');
 });
 
 //Siswa
@@ -77,28 +79,15 @@ $routes->group('siswa', function ($routes) {
     $routes->get('biodata', 'siswa\Biodata::index');
     $routes->get('biodata/get', 'siswa\Biodata::read');
     $routes->post('biodata/post', 'Biodata::save');
+    
+    $routes->get('daftar', 'siswa\Daftar::index');
+    $routes->get('daftar/read', 'siswa\Daftar::read');
+    $routes->post('daftar/post', 'siswa\Daftar::post');
+    
+    $routes->get('absen', 'siswa\Absen::index');
+    $routes->get('absen/read', 'siswa\Absen::read');
+    $routes->post('absen/post', 'siswa\Absen::post');
 });
-
-
-// $routes->post('register', 'admin\Siswa::saveregister');
-// $routes->put('siswa', 'admin\Siswa::edit');
-
-
-
-
-// Data Siswa
-// $routes->get('siswa', 'admin\Siswa::index');
-// $routes->get('siswa/add', 'admin\Siswa::create');
-// $routes->post('siswa', 'admin\Siswa::save');
-// $routes->put('siswa', 'admin\Siswa::edit');
-
-// // Data Siswa
-
-
-
-
-
-
 
 // Login
 // $routes->get('login', 'Auth::login');

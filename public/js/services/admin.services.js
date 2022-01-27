@@ -2,8 +2,7 @@ angular.module('admin.service', [])
 // admin
     .factory('dashboardServices', dashboardServices)
     .factory('biodataServices', biodataServices)
-    .factory('anggotaServices', anggotaServices)
-    .factory('keanggotaanServices', keanggotaanServices)
+    .factory('daftarServices', daftarServices)
 
 // Anggota
     
@@ -174,8 +173,8 @@ function biodataServices($http, $q, helperServices, AuthService, message) {
 
 }
 
-function anggotaServices($http, $q, helperServices, AuthService, message) {
-    var controller = helperServices.url + 'admin/anggota/';
+function daftarServices($http, $q, helperServices, AuthService, message) {
+    var controller = helperServices.url + 'siswa/daftar/';
     var service = {};
     service.data = [];
     service.instance = false;
@@ -195,7 +194,7 @@ function anggotaServices($http, $q, helperServices, AuthService, message) {
         }).then(
             (res) => {
                 service.data = res.data;
-                def.resolve(res.data);
+                def.resolve(service.data);
             },
             (err) => {
                 message.error(err.data.message);
@@ -214,106 +213,8 @@ function anggotaServices($http, $q, helperServices, AuthService, message) {
             headers: AuthService.getHeader()
         }).then(
             (res) => {
-                var data = service.data.find(x=>x.id == param.id_badan_usaha);
-                if(data){
-                    data.status = "Diterima";
-                    data.keanggotaan = res.data;
-                }
-                def.resolve(res.data);
-            },
-            (err) => {
-                message.error(err.data);
-                def.reject(err);
-            }
-        );
-        return def.promise;
-    }
-
-    function put(param) {
-        var def = $q.defer();
-        $http({
-            method: 'put',
-            url: controller + 'put',
-            data: param,
-            headers: AuthService.getHeader()
-        }).then(
-            (res) => {
-                var data = service.data.find(x => x.id == param.id);
-                if (data) {
-                    data.status = res.data.status;
-                    data.pesan = res.data.pesan;
-                }
-                def.resolve(res.data);
-            },
-            (err) => {
-                def.reject(err);
-            }
-        );
-        return def.promise;
-    }
-
-    function deleted(param) {
-        var def = $q.defer();
-        $http({
-            method: 'delete',
-            url: controller + "/deleted/" + param.id,
-            headers: AuthService.getHeader()
-        }).then(
-            (res) => {
-                var index = service.data.indexOf(param);
-                service.data.splice(index, 1);
-                def.resolve(res.data);
-            },
-            (err) => {
-                def.reject(err);
-                message.error(err.data.message)
-            }
-        );
-        return def.promise;
-    }
-
-}
-function keanggotaanServices($http, $q, helperServices, AuthService, message) {
-    var controller = helperServices.url + 'anggota/keanggotaan/';
-    var service = {};
-    service.data = [];
-    service.instance = false;
-    return {
-        get: get,
-        post: post,
-        put: put,
-        deleted:deleted
-    };
-
-    function get() {
-        var def = $q.defer();
-        $http({
-            method: 'get',
-            url: controller + 'read',
-            headers: AuthService.getHeader()
-        }).then(
-            (res) => {
-                def.resolve(res.data);
-            },
-            (err) => {
-                message.error(err.data.message);
-                def.reject(err);
-            }
-        );
-        return def.promise;
-    }
-
-    function post(param) {
-        var def = $q.defer();
-        $http({
-            method: 'post',
-            url: controller + 'post',
-            data: param,
-            headers: AuthService.getHeader()
-        }).then(
-            (res) => {
-                service.data.push(res.data);
-                def.resolve(res.data);
+                service.data = res.data;
+                def.resolve(service.data);
             },
             (err) => {
                 message.error(err.data.messages.error);

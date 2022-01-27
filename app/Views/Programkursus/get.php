@@ -1,5 +1,8 @@
 <?= $this->extend('layout/template')?>
 <?= $this->section('content')?>
+<script>
+$.LoadingOverlay("show");
+</script>
 <section class="section">
     <div class="section-header">
         <div class="section-header-button">
@@ -38,4 +41,7 @@
         </div>
     </div>
 </section>
+<script>
+$.LoadingOverlay("hide");
+</script>
 <?= $this->endSection()?>

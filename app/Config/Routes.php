@@ -46,7 +46,7 @@ $routes->group('admin', function ($routes) {
     $routes->post('kelas', 'admin\Kelas::save');
     $routes->put('kelas', 'admin\Kelas::edit');
     $routes->get('programkursus', 'admin\Programkursus::index');
-    $routes->get('programkursus/add', 'admin\Programkursus::create');
+    $routes->get('programkursus/add', 'admin\ProgramKursus::create');
     $routes->post('programkursus', 'admin\Programkursus::save');
     $routes->put('programkursus', 'admin\Programkursus::edit');
     

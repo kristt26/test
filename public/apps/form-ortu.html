@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="nama_ayah">Nama Ayah &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.nama_ayah.$dirty && signupform.nama_ayah.$invalid">
+                <small class="" ng-show="signupform.nama_ayah.$error.required">
+                    Nama ayah tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="nama_ayah" id="nama_ayah" ng-model="formData.nama_ayah"
+                placeholder="Nama Ayah" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="pekerjaan_ayah">Pekerjaan Ayah &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.pekerjaan_ayah.$dirty && signupform.pekerjaan_ayah.$invalid">
+                <small class="" ng-show="signupform.pekerjaan_ayah.$error.required">
+                    Pekerjaan ayah tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="pekerjaan_ayah" id="pekerjaan_ayah" ng-model="formData.pekerjaan_ayah"
+                placeholder="Pekerjaan Ayah" required>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="nama_ibu">Nama Ibu &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.nama_ibu.$dirty && signupform.nama_ibu.$invalid">
+                <small class="" ng-show="signupform.nama_ibu.$error.required">
+                    Nama ibu lahir tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="nama_ibu" id="nama_ibu" ng-model="formData.nama_ibu"
+                placeholder="Nama ibu" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="pekerjaan_ibu">Pekerjaan Ibu &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.pekerjaan_ibu.$dirty && signupform.pekerjaan_ibu.$invalid">
+                <small class="" ng-show="signupform.pekerjaan_ibu.$error.required">
+                    Pekerjaan ibu lahir tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="pekerjaan_ibu" id="pekerjaan_ibu" ng-model="formData.pekerjaan_ibu"
+                placeholder="Pekerjaan ibu" required>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-between">
+    <a ui-sref="form.profile" class="btn btn-info">
+        <span class="glyphicon glyphicon-circle-arrow-left"></span> Back
+    </a>
+    <a ui-sref="form.interests"
+        ng-class="{'btn btn-info disabled': signupform.$invalid, 'btn btn-info': !signupform.$invalid}"
+        ng-disabled=signupform.$invalid ng-click="next()">
+        Next <span class="fa fa-arrow-circle-right"></span>
+    </a>
+</div>

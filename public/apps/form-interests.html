@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="upload_foto3x4">Foto 3 x 4 &nbsp;</label>
+            <input type="file" class="form-control" name="upload_foto3x4" accept="image/*, application/pdf" id="upload_foto3x4"
+                ng-model="formData.upload_foto3x4" base-sixty-four-input required  ng-change="check(formData.upload_foto3x4)">
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="upload_ijazah">Ijazah &nbsp;</label>
+            <input type="file" class="form-control" name="upload_ijazah" accept="image/*, application/pdf" id="upload_ijazah"
+                ng-model="formData.upload_ijazah" base-sixty-four-input required  ng-change="check(formData.upload_ijazah)">
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="upload_ktp">KTP &nbsp;</label>
+            <input type="file" class="form-control" name="upload_ktp" accept="image/*, application/pdf" id="upload_ktp"
+                ng-model="formData.upload_ktp" base-sixty-four-input required  ng-change="check(formData.upload_ktp)">
+        </div>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col" ng-if="formData.upload_foto3x4">
+        <img ng-src="{{upload_foto3x4.filetype=='application/pdf' ? '../../template/img/pdf.png': '../../template/img/picture.png'}}"
+            class="img-fluid mb-2" alt="white sample" ng-click="open(formData.upload_foto3x4)" />
+    </div>
+</div> -->
+<div class="d-flex justify-content-between">
+    <a ui-sref="form.ortu" class="btn btn-info">
+        <span class="glyphicon glyphicon-circle-arrow-left"></span> Back
+    </a>
+    <a ui-sref="form.finish" ng-class="{'btn btn-info disabled': signupform.$invalid, 'btn btn-info': !signupform.$invalid}"
+    ng-disabled=signupform.$invalid ng-click="next()">
+        Next <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+
+<script>
+    // $('a').contextmenu(function () {
+    //     return false;
+    // });
+    // document.addEventListener('contextmenu', event => event.preventDefault());
+</script>

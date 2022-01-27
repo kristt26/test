@@ -1,0 +1,110 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="col-sm-12 col-sm-offset-2">
+                    <div class="accordion mb-3" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne" style=" background-color: #6777ef;">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left" style="color:black; font-size: 20px;"
+                                        type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        <strong>Biodata</strong>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordionExample">
+                                <div class="card-body" style="background-color: #fff;">
+                                    <div class="col-lg-12">
+                                        <div class="row"
+                                            style="font-size:1rem; font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; font-weight: 400; line-height: 1.5; letter-spacing: 0.00938em;">
+                                            <div class="col-lg-6" style="padding: 8px;">NIK</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.nik}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Nama Siswa</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.nama_siswa}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Jenis Kelamin</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.jenis_kelamin}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Tempat Tanggal Lahir</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.tempat_lahir}}, {{data.tanggal_lahir | date:'d MMMM y'}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Agama</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.agama}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Alamat</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.alamat}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Dusun</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.dusun}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Wilayah</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.wilaya}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Kabupaten/Kota</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.kabupaten_kota}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Kecamatan</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.kecamatan}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Kelurahan</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.kelurahan}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Jenis Tinggal</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.jenis_tinggal}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Moda Transportasi</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.transportasi}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Telepon/HP</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.nohp}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Nama Ayah</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.nama_ayah}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Pekerjaan Ayah</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.pekerjaan_ayah}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Nama Ibu</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.nama_ibu}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Pekerjaan Ibu</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.pekerjaan_ibu}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Tahun Masuk</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.tahun_masuk}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Foto</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.upload_foto3x4}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">Ijazah</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.ijazah}}</div>
+                                            <div class="col-lg-6" style="padding: 8px;">KTP</div>
+                                            <div class="col-lg-6" style="padding: 8px;">: {{datas.ktp}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo" style=" background-color: #6777ef;">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left collapsed"
+                                        style="color:black; font-size: 20px;" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <strong>Berkas Persyaratan</strong>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-2" ng-repeat="item in datas.berkas" ng-if="datas.berkas">
+                                            <img ng-src="{{item.ext=='pdf' ? '../../template/img/pdf.png': '../../template/img/picture.png'}}"
+                                                class="img-fluid mb-2" alt="white sample" ng-click="open1(item)" />
+                                            <div class="card-block">
+                                                <h6 class="card-title text-center">
+                                                    {{item.nama}}
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" class="btnbox-center">
+                        <button type="submit" class="btn btn-right btn-warning">
+                            Edit <span class="glyphicon glyphicon-ok-sign"></span>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

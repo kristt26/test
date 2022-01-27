@@ -1,0 +1,206 @@
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="nik">NIK &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.nik.$dirty && signupform.nik.$invalid">
+                <small class="" ng-show="signupform.nik.$error.required">
+                    NIK tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="nik" id="nik" ng-model="formData.nik"
+                placeholder="Nama badan usaha" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="nama_siswa">Nama Siswa &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.nama_siswa.$dirty && signupform.nama_siswa.$invalid">
+                <small class="" ng-show="signupform.nama_siswa.$error.required">
+                    Nama tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="nama_siswa" id="nama_siswa" ng-model="formData.nama_siswa"
+                placeholder="Nama Siswa" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="tempat_lahir">Tempat Lahir &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.tempat_lahir.$dirty && signupform.tempat_lahir.$invalid">
+                <small class="" ng-show="signupform.tempat_lahir.$error.required">
+                    Tempat lahir tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir" ng-model="formData.tempat_lahir"
+                placeholder="Tempat Lahir" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="tanggal_lahir">Tanggal Lahir &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.tanggal_lahir.$dirty && signupform.tanggal_lahir.$invalid">
+                <small class="" ng-show="signupform.tanggal_lahir.$error.required">
+                    Tanggal lahir tidak boleh kosong.
+                </small>
+            </span>
+            <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" ng-model="formData.tanggal_lahir"
+                placeholder="Tanggal Lahir" required>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-1">
+        <div class="form-group">
+            <label for="jenis_kelamin">Jenis Kelamin &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.jenis_kelamin.$dirty && signupform.jenis_kelamin.$invalid">
+                <small class="" ng-show="signupform.jenis_kelamin.$error.required">
+                    Jenis kelamin usaha tidak boleh kosong.
+                </small>
+            </span>
+            <select class="form-control" name="jenis_kelamin" id="jenis_kelamin" ng-model="formData.jenis_kelamin" required>
+                <option value="L">L</option>
+                <option value="P">P</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <div class="form-group">
+            <label for="agama">Agama &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.agama.$dirty && signupform.agama.$invalid">
+                <small class="" ng-show="signupform.agama.$error.required">
+                    Badan usaha tidak boleh kosong.
+                </small>
+            </span>
+            <select class="form-control" name="agama" id="agama" ng-model="formData.agama" required>
+                <option value="Islam">Islam</option>
+                <option value="Kristen">Kristen</option>
+                <option value="Khatolik">Khatolik</option>
+                <option value="Hindu">Hindu</option>
+                <option value="Budha">Budha</option>
+                <option value="Konghuchu">Konghuchu</option>
+            </select>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="dusun">Dusun &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.dusun.$dirty && signupform.dusun.$invalid">
+                <small class="" ng-show="signupform.dusun.$error.required">
+                    Dusun tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="dusun" id="dusun" ng-model="formData.dusun"
+                placeholder="Dusun" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="wilaya">Wilayah &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.wilaya.$dirty && signupform.wilaya.$invalid">
+                <small class="" ng-show="signupform.wilaya.$error.required">
+                    Wilayah tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="wilaya" id="wilaya" ng-model="formData.wilaya"
+                placeholder="Wilayah" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="kabupaten_kota">Kabupaten/Kota &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.kabupaten_kota.$dirty && signupform.kabupaten_kota.$invalid">
+                <small class="" ng-show="signupform.kabupaten_kota.$error.required">
+                    Wilayah tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="kabupaten_kota" id="kabupaten_kota" ng-model="formData.kabupaten_kota"
+                placeholder="Kabupaten / Kota" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="kecamatan">Kecamatan &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.kecamatan.$dirty && signupform.kecamatan.$invalid">
+                <small class="" ng-show="signupform.kecamatan.$error.required">
+                    Kecamatan tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="kecamatan" id="kecamatan" ng-model="formData.kecamatan"
+                placeholder="Kecamatan" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="kelurahan">Kelurahan &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.kelurahan.$dirty && signupform.kelurahan.$invalid">
+                <small class="" ng-show="signupform.kelurahan.$error.required">
+                    Kelurahan tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="kelurahan" id="kelurahan" ng-model="formData.kelurahan"
+                placeholder="Kelurahan" required>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="jenis_tinggal">Jenis Tinggal &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.jenis_tinggal.$dirty && signupform.jenis_tinggal.$invalid">
+                <small class="" ng-show="signupform.jenis_tinggal.$error.required">
+                    Jenis tinggal tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="jenis_tinggal" id="jenis_tinggal" ng-model="formData.jenis_tinggal"
+                placeholder="Jenis Tinggal" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="transportasi">Transportasi &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.transportasi.$dirty && signupform.transportasi.$invalid">
+                <small class="" ng-show="signupform.transportasi.$error.required">
+                    Transportasi tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="transportasi" id="transportasi" ng-model="formData.transportasi"
+                placeholder="Transportasi" required>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="nohp">Telepon/HP &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.nohp.$dirty && signupform.nohp.$invalid">
+                <small class="" ng-show="signupform.nohp.$error.required">
+                    No Kontak/HP tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="nohp" id="nohp" ng-model="formData.nohp"
+                placeholder="No Kontak/HP" required>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="form-group">
+            <label for="alamat">Alamat &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.alamat.$dirty && signupform.alamat.$invalid">
+                <small class="" ng-show="signupform.alamat.$error.required">
+                    Alamat tidak boleh kosong.
+                </small>
+                <small class="" ng-show="signupform.alamat.$error.minlength">
+                    Alamat harus minimal 3 digit
+                </small>
+            </span>
+            <textarea name="alamat" id="alamat" style="height: 100px;" class="form-control" ng-model="formData.alamat"
+            placeholder="Alamat" ng-minlength=3 required></textarea>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-end">
+    <a ui-sref="form.ortu"
+        ng-class="{'btn btn-info disabled': signupform.$invalid, 'btn btn-info': !signupform.$invalid}"
+        ng-disabled=signupform.$invalid ng-click="next()">
+        Next <span class="fa fa-arrow-circle-right"></span>
+    </a>
+</div>

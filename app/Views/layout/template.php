@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/components.css">
 
+    <script src="<?= base_url()?>/template/node_modules/jquery/dist/jquery.min.js"></script>
+
 
 
 

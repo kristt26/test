@@ -98,4 +98,5 @@
         </div>
     </div>
 </section>
+$.LoadingOverlay("hide");
 <?= $this->endSection()?>

@@ -28,11 +28,12 @@ class ProgramKursus extends BaseController
     public function save()
     {
         $data = [
-            'program_kursus' => $this->request->getPost(),
+            'program_kursus' => $this->request->getVar('program_kursus')
         ];
+        
         // $data = $this->request->getPost();
         $this->programkursus->insert($data);
-        return redirect()->to(site_url('programkursus'))->with('success', 'Data Program Kursus Berhasil Di Tambah');
+        return redirect()->to(base_url('admin/programkursus'))->with('success', 'Data Program Kursus Berhasil Di Tambah');
        
 
     }

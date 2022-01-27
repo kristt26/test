@@ -34,12 +34,13 @@ if(session()->get('akses') == 'Admin') :?>
 
 <?php if(session()->get('akses') =='Siswa') :?>
 <li class="menu-header">Navbar Menu</li>
-<li><a class="nav-link" href="<?= site_url('/Siswa')?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
-<li><a class="nav-link" href="<?= site_url('siswa/biodata')?>"><i class="fas fa-user-edit"></i> <span>Biodata
+<li><a class="nav-link" href="<?= base_url('/Siswa')?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+<li><a class="nav-link" href="<?= base_url('siswa/biodata')?>"><i class="fas fa-user-edit"></i> <span>Biodata
             Siswa</span></a></li>
-<li><a class="nav-link" href="<?= site_url('siswa/daftar')?>"><i class="fas fa-file"></i> <span>Daftar
+<li><a class="nav-link" href="<?= base_url('siswa/daftar')?>"><i class="fas fa-file"></i> <span>Daftar
             Kelas</span></a>
 </li>
-<li><a class="nav-link" href="<?= site_url()?>"><i class="fas fa-file-alt"></i></i> <span>Absen Siswa</span></a></li>
+<li><a class="nav-link" href="<?= base_url('siswa/absen')?>"><i class="fas fa-file-alt"></i></i> <span>Absen
+            Siswa</span></a></li>
 
 <?php endif;?>

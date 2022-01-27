@@ -1,17 +1,17 @@
 <?= $this->extend('layout/template')?>
 <?= $this->section('content')?>
-<section class="section" ng-controller="daftarController">
+<section class="section" ng-controller="absenController">
     <div class="section-header">
         <div class="section-header-back">
             <a href="<?= site_url('siswa')?>" class="btn"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <h1>Daftar Program kursus</h1>
+        <h1>Absen</h1>
     </div>
     <div class="section-body">
         <div class="card">
             <div class="card-header d-flex justify-content-between">
-                <h4>Daftar Kursus</h4>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Daftar</button>
+                <h4>Daftar Program</h4>
+                <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Daftar Program</button> -->
             </div>
             <div class="card-body">
                 <div class="table-respinsive">
@@ -98,7 +98,4 @@
         </div>
     </div>
 </section>
-<script>
-$.LoadingOverlay("hide");
-</script>
 <?= $this->endSection()?>

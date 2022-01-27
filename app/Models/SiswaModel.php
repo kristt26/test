@@ -12,7 +12,7 @@ class SiswaModel extends Model
     protected $allowedFields    = ['NIK','nama_siswa','jenis_kelamin','tempat_lahir','tanggal_lahir','agama','alamat',
                                 'dusun','wilaya','kabupaten_kota','kecamatan','kelurahan','jenis_tinggal','transportasi',
                                 'nohp','nama_ayah','pekerjaan_ayah','nama_ibu','pekerjaan_ibu','upload_foto3x4',
-                                'upload_ktp','tahun_masuk','id_user'];
+                                'upload_ijazah','upload_ktp','tahun_masuk','id_user'];
   
   
     public function getUser(){

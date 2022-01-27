@@ -42,7 +42,7 @@ angular.module('appss', [
                 url: '/finish',
                 templateUrl: '../../apps/form-finish.html'
             });
-        $urlRouterProvider.otherwise('form/profile');
+        $urlRouterProvider.otherwise('data');
     })
 ;
 

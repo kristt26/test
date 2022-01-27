@@ -7,7 +7,7 @@ angular.module('apps', [
     'swangular',
     'message.service',
     'ngLocale',
-    'datatables',
+    // 'datatables',
     'cur.$mask',
     'ngAnimate',
     'ui.router'

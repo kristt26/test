@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="apps">
 
 <head>
     <meta charset="UTF-8">
@@ -22,6 +22,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/components.css">
+
 
 
 
@@ -109,6 +110,39 @@
     <script src="<?= base_url()?>/template/node_modules/chart.js/dist/Chart.min.js"></script>
     <!-- chart -->
     <script src="<?= base_url()?>/template/node_modules/select2/dist/js/select2.full.min.js"></script>
+
+    <script src="<?=base_url()?>/libs/angular/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js"
+        integrity="sha512-JkCv2gG5E746DSy2JQlYUJUcw9mT0vyre2KxE2ZuDjNfqG90Bi7GhcHUjLQ2VIAF1QVsY5JMwA1+bjjU5Omabw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.min.js"
+        integrity="sha512-HdDqpFK+5KwK5gZTuViiNt6aw/dBc3d0pUArax73z0fYN8UXiSozGNTo3MFx4pwbBPldf5gaMUq/EqposBQyWQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-animate/1.8.2/angular-animate.min.js"
+        integrity="sha512-jZoujmRqSbKvkVDG+hf84/X11/j5TVxwBrcQSKp1W+A/fMxmYzOAVw+YaOf3tWzG/SjEAbam7KqHMORlsdF/eA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?=base_url()?>/js/apps.js"></script>
+    <script src="<?=base_url()?>/js/services/helper.services.js"></script>
+    <script src="<?=base_url()?>/js/services/auth.services.js"></script>
+    <script src="<?=base_url()?>/js/services/admin.services.js"></script>
+    <script src="<?=base_url()?>/js/services/message.services.js"></script>
+    <script src="<?=base_url()?>/js/controllers/admin.controllers.js"></script>
+
+    <script src="<?=base_url()?>/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="<?=base_url()?>/libs/swangular/swangular.js"></script>
+    <script src="<?=base_url()?>/libs/angular-datatables/dist/angular-datatables.min.js"></script>
+    <script src="<?=base_url()?>/libs/angular-locale_id-id.js"></script>
+    <script src="<?=base_url()?>/libs/input-mask/angular-input-masks-standalone.min.js"></script>
+    <script src="<?=base_url()?>/libs/jquery.PrintArea.js"></script>
+    <script src="<?=base_url()?>/libs/angular-base64-upload/dist/angular-base64-upload.min.js"></script>
+    <script src="<?=base_url()?>/libs/loading/dist/loadingoverlay.min.js"></script>
+    <script src="<?=base_url()?>/libs/calendar/main.min.js"></script>
+    <script src="<?=base_url()?>/libs/calendar/locales-all.min.js"></script>
+    <script src="<?=base_url()?>/libs/angularjs-currency-input-mask/dist/angularjs-currency-input-mask.min.js">
+    </script>
+    <script>
+    $.LoadingOverlay("show");
+    </script>
 
 
 </body>

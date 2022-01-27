@@ -3,8 +3,7 @@ angular.module('adminctrl', [])
     .controller('dashboardController', dashboardController)
     .controller('biodataController', biodataController)
     .controller('formController', formController)
-    .controller('anggotaController', anggotaController)
-    .controller('keanggotaanController', keanggotaanController)
+    .controller('daftarController', daftarController)
 
     ;
 // Anggota
@@ -382,10 +381,11 @@ function formController($scope, helperServices, biodataServices, message, $sce, 
             $scope.datas.ijazahext = ijazah[1];
             var ktp = $scope.datas.upload_ktp.split('.');
             $scope.datas.ktpext = ktp[1];
-            $state.go('data');
+            $scope.formData = res;
+            $scope.formData.tanggal_lahir = new Date($scope.formData.tanggal_lahir);
+            // $state.go('data');
             console.log($scope.datas.berkas);
         } else {
-            $state.go('form.profile');
             if (window.localStorage.getItem('biodata')) {
                 $scope.formData = JSON.parse(window.localStorage.getItem('biodata'));
                 $scope.formData.tanggal_lahir = new Date($scope.formData.tanggal_lahir);
@@ -402,10 +402,10 @@ function formController($scope, helperServices, biodataServices, message, $sce, 
             $.LoadingOverlay("show");
             biodataServices.put($scope.formData).then(res => {
                 message.success("Proses Berhasil");
-                // window.localStorage.removeItem('biodata');
+                window.localStorage.removeItem('biodata');
                 $scope.datas = res;
                 $.LoadingOverlay("hide");
-                // $state.go('data');
+                $state.go('data');
             })
         })
     };
@@ -484,101 +484,28 @@ function formController($scope, helperServices, biodataServices, message, $sce, 
     }
 }
 
-function anggotaController($scope, helperServices, anggotaServices, message, $sce, $http, $window) {
-    $scope.$emit("SendUp", "Data Anggota");
-    $scope.datas = {};
-    $scope.pengajuan = {};
-    $scope.diterima = {};
-    $scope.ditolak = {};
-    $scope.title = "Data Anggota";
+function daftarController($scope, helperServices, daftarServices, message, $sce) {
+    $scope.$emit("SendUp", "Pembobotan Faktor");
+    $scope.datas = [];
+    $scope.title = "Biodata Anggota";
     $scope.model = {};
+    $scope.button1 = true;
     $scope.head = ""
     $scope.data = [];
-    anggotaServices.get().then((res) => {
+    $scope.penilaian = false;
+    $.LoadingOverlay("show");
+    daftarServices.get().then(res=>{
         $scope.datas = res;
-        $scope.datas.forEach(element => {
-            element.berkas.forEach(element => {
-                var sp = element.file.split('.');
-                element.ext = sp[1];
-            });
-        });
-
-        $scope.pengajuan = res.filter(x => x.status == 'Proses');
-        $scope.diterima = res.filter(x => x.status == 'Diterima');
-        $scope.ditolak = res.filter(x => x.status == 'Ditolak');
         console.log(res);
-    })
-    $scope.detail = (item) => {
-        $scope.model = angular.copy(item)
-        $("#detail").modal('show');
-    }
-
-    $scope.terima = (item) => {
-        $scope.model = {};
-        $scope.model.id_badan_usaha = item.id;
-        $("#terima").modal('show');
-    }
-
-    $scope.tolak = (item) => {
-        $scope.model = {};
-        $scope.model = angular.copy(item);
-        $("#tolak").modal('show');
-    }
-
-    $scope.save = (set) => {
-        if (set == 'terima') {
-            anggotaServices.post($scope.model).then((res) => {
-                message.success("Pengajuan berhasil disetujui !!!", "OK");
-                $scope.pengajuan = $scope.datas.filter(x => x.status == 'Proses');
-                $scope.diterima = $scope.datas.filter(x => x.status == 'Diterima');
-                $scope.ditolak = $scope.datas.filter(x => x.status == 'Ditolak');
+        $.LoadingOverlay("hide");
+    });
+    $scope.save = ()=>{
+        message.dialog("Ingin melakukan pendaftaran?", "Ya", "Tidak").then(x=>{
+            daftarServices.post($scope.model).then(res=>{
+                $("#exampleModal").modal('hide');
                 $scope.model = {};
-                $("#terima").modal('hide');
-
+                message.success('Berhasil', "OK");
             })
-        } else {
-            anggotaServices.put($scope.model).then((res) => {
-                message.success("Pengembalian berkas berhasil!!!", "OK");
-                $scope.pengajuan = $scope.datas.filter(x => x.status == 'Proses');
-                $scope.diterima = $scope.datas.filter(x => x.status == 'Diterima');
-                $scope.ditolak = $scope.datas.filter(x => x.status == 'Ditolak');
-                $scope.model = {};
-                $("#tolak").modal('hide');
-            })
-        }
+        })
     }
-
-    $scope.open1 = (item) => {
-        if (item.ext == 'pdf') {
-            $http.get(helperServices.url + 'template/img/berkas/' + item.file, { responseType: 'arraybuffer' }).then(function (response) {
-                var file = new Blob([response.data], { type: 'application/pdf' });
-                file.name = item.file;
-                var fileUrl = URL.createObjectURL(file);
-                $window.open(fileUrl, '_blank');
-            });
-        } else {
-            let image = new Image();
-            image.src = helperServices.url + "template/img/berkas/" + item.file;
-
-            var w = window.open("");
-            w.document.write(image.outerHTML);
-        }
-
-    }
-}
-
-function keanggotaanController($scope, helperServices, keanggotaanServices, message, $sce) {
-    $scope.$emit("SendUp", "Keanggotaan");
-    $scope.datas = {};
-    $scope.title = "Keanggotaan";
-    $scope.model = {};
-    $scope.head = ""
-    $scope.data = [];
-    keanggotaanServices.get().then((res) => {
-        $scope.datas = res;
-        if (!res) {
-            document.location.href = helperServices.url + "anggota/biodata";
-        }
-        console.log(res);
-    })
 }

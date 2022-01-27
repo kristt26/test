@@ -5,22 +5,29 @@ namespace App\Controllers\Siswa;
 use CodeIgniter\API\ResponseTrait;
 use App\Controllers\BaseController;
 
-class Biodata extends BaseController
+class Daftar extends BaseController
 {
     use ResponseTrait;
     public function __construct() {
+        $this->program = new \App\Models\ProgramKursusModel();
+        $this->kelas = new \App\Models\KelasModel();
         $this->siswa = new \App\Models\SiswaModel();
-        $this->decode = new \App\Libraries\Decode();
+        $this->detail = new \App\Models\DetailkelasModel();
         $this->db =  \Config\Database::connect();
     }
     public function index()
     {
-        return view('siswa/biodata');
+        return view('siswa/daftar');
     }
 
     public function read()
     {
-        $data = $this->siswa->where('id_user', session()->get('uid'))->get()->getRowObject();
+        $data['program'] = $this->program->asObject()->findAll();
+        foreach ($data['program'] as $key => $item) {
+            $item->kelas = $this->kelas->where('id_program', $item->id_program)->findAll();
+        }
+        $data['siswa'] = $this->siswa->where('id_user', session()->get('uid'))->get()->getRow();
+        $data['kursus'] = $this->detail->kursusSiswa(session()->get('uid'));
         return $this->respond($data);
     }
 
@@ -29,13 +36,10 @@ class Biodata extends BaseController
         $data = $this->request->getJSON();
         try {
             $this->db->transBegin();
-            $data->upload_foto3x4 = isset($data->upload_foto3x4->base64) ? $this->decode->decodebase64($data->upload_foto3x4->base64) : $data->upload_foto3x4;
-            $data->upload_ijazah = isset($data->upload_ijazah->base64) ? $this->decode->decodebase64($data->upload_ijazah->base64): $data->upload_ijazah;
-            $data->upload_ktp = isset($data->upload_ktp->base64) ? $this->decode->decodebase64($data->upload_ktp->base64): $data->upload_ktp;
-            $this->siswa->save($data);
+            $this->detail->save($data);
             if($this->db->transStatus()){
                 $this->db->transCommit();
-                return $this->respondCreated($data);
+                $this->read();                
             }else{
                 $this->db->transRollback();
                 return $this->fail(false);

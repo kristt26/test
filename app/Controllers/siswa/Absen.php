@@ -5,7 +5,7 @@ namespace App\Controllers\Siswa;
 use CodeIgniter\API\ResponseTrait;
 use App\Controllers\BaseController;
 
-class Biodata extends BaseController
+class Absen extends BaseController
 {
     use ResponseTrait;
     public function __construct() {

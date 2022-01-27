@@ -29,7 +29,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label>NIK</label>
-                            <input type="text" class="form-control" name="NIK" placeholder="NIK" required>
+                            <input type="text" class="form-control" name="nik" placeholder="NIK" required>
                         </div>
 
                     </div>

@@ -22,12 +22,16 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/components.css">
+    <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/loading.css">
 
 
 
 </head>
 
 <body>
+    <!-- <div class="ring">
+        LOADING
+    </div> -->
     <div id="app">
         <div class="main-wrapper">
             <div class="navbar-bg"></div>

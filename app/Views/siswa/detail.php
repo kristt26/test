@@ -40,7 +40,7 @@
                         <tr>
                             <td>NIK</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['NIK'] ?></td>
+                            <td><?= $siswa[0]['nik'] ?></td>
                         </tr>
                         <tr>
                             <td>Tempat Tanggal Lahir</td>

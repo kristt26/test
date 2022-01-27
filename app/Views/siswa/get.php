@@ -2,18 +2,12 @@
 <?= $this->section('content')?>
 <section class="section">
     <div class="section-header">
-
+        <h4 align="center">Data Siswa Registrasi</h4>
         <div id="flash" data-flash="<?= session()->getFlashdata('success'); ?>"></div>
-        <div class="section-header-breadcrumb">
-            <a href="<?= site_url('alumni/add')?>" class="btn btn-primary"><i class="fas fa-plus"></i> Alumni Peserta
-                Didik </a>
-        </div>
     </div>
     <div class="section-body">
         <div class="card">
-            <div class="card-header">
-                <h4 align="center">Data Siswa</h4>
-            </div>
+
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md" id="myTable">
                     <tbody>
@@ -31,7 +25,7 @@
                         <?php foreach ($siswa as $key => $value) :?>
                         <tr>
                             <td><?= $key +1?></td>
-                            <td><?= $value->NIK?></td>
+                            <td><?= $value->nik?></td>
                             <td><?= $value->nama_siswa?></td>
                             <td><?= $value->username?></td>
                             <td><?= $value->password?></td>

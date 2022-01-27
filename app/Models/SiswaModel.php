@@ -9,10 +9,10 @@ class SiswaModel extends Model
     protected $table            = 'tb_siswa';
     protected $primaryKey       = 'id_siswa';
     protected $returnType       = 'object';
-    protected $allowedFields    = ['NIK','nama_siswa','jenis_kelamin','tempat_lahir','tanggal_lahir','agama','alamat',
+    protected $allowedFields    = ['nik','nama_siswa','jenis_kelamin','tempat_lahir','tanggal_lahir','agama','alamat',
                                 'dusun','wilaya','kabupaten_kota','kecamatan','kelurahan','jenis_tinggal','transportasi',
                                 'nohp','nama_ayah','pekerjaan_ayah','nama_ibu','pekerjaan_ibu','upload_foto3x4',
-                                'upload_ktp','tahun_masuk','id_user'];
+                                'upload_ktp','upload_ijazah','tahun_masuk','id_user'];
   
   
     public function getUser(){

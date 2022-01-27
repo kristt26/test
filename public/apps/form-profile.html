@@ -179,6 +179,18 @@
                 placeholder="No Kontak/HP" required>
         </div>
     </div>
+    <div class="col">
+        <div class="form-group">
+            <label for="tahun_masuk">Tahun Masuk &nbsp;</label>
+            <span style="color: red;" ng-show="signupform.tahun_masuk.$dirty && signupform.tahun_masuk.$invalid">
+                <small class="" ng-show="signupform.tahun_masuk.$error.required">
+                    Tahun masuk tidak boleh kosong.
+                </small>
+            </span>
+            <input type="text" class="form-control" name="tahun_masuk" id="tahun_masuk" ng-model="formData.tahun_masuk"
+                placeholder="Tahun masuk" required>
+        </div>
+    </div>
 </div>
 <div class="row">
     <div class="col">

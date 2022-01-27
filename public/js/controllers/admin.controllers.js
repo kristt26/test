@@ -370,27 +370,31 @@ function formController($scope, helperServices, biodataServices, message, $sce, 
     $scope.data = [];
     $scope.penilaian = false;
     $scope.formData = {};
-    if (window.localStorage.getItem('biodata')) {
-        $scope.formData = JSON.parse(window.localStorage.getItem('biodata'));
-        $scope.formData.tanggal_lahir = new Date($scope.formData.tanggal_lahir);
-    }
-    // biodataServices.get().then(res => {
-    //     $scope.datas = res;
-    //     console.log(res);
-    //     $scope.datas.berkas.forEach(element => {
-    //         var sp = element.file.split('.');
-    //         element.ext = sp[1];
-    //     });
-    //     $state.go('data');
-    //     console.log($scope.datas.berkas);
-    //     if (res) {
-    //     } else {
-    //         $state.go('form.profile');
-    //         if (window.localStorage.getItem('biodata')) {
-    //             $scope.formData = JSON.parse(window.localStorage.getItem('biodata'));
-    //         }
-    //     }
-    // })
+    
+    $.LoadingOverlay("show");
+    biodataServices.get().then(res => {
+        $scope.datas = res;
+        console.log(res);
+        if (res.jenis_kelamin) {
+            var foto = $scope.datas.upload_foto3x4.split('.');
+            $scope.datas.fotoext = foto[1];
+            var ijazah = $scope.datas.upload_ijazah.split('.');
+            $scope.datas.ijazahext = ijazah[1];
+            var ktp = $scope.datas.upload_ktp.split('.');
+            $scope.datas.ktpext = ktp[1];
+            $state.go('data');
+            console.log($scope.datas.berkas);
+        } else {
+            $state.go('form.profile');
+            if (window.localStorage.getItem('biodata')) {
+                $scope.formData = JSON.parse(window.localStorage.getItem('biodata'));
+                $scope.formData.tanggal_lahir = new Date($scope.formData.tanggal_lahir);
+            }else{
+                $scope.formData = res;
+            }
+        }
+        $.LoadingOverlay("hide");
+    })
 
     // function to process the form
     $scope.processForm = function () {

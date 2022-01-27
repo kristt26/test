@@ -11,6 +11,7 @@ class Biodata extends BaseController
     public function __construct() {
         $this->siswa = new \App\Models\SiswaModel();
         $this->decode = new \App\Libraries\Decode();
+        $this->db =  \Config\Database::connect();
     }
     public function index()
     {
@@ -28,12 +29,10 @@ class Biodata extends BaseController
         $data = $this->request->getJSON();
         try {
             $this->db->transBegin();
-            $data->user_id = session()->get('uid');
-            $this->badan->insert($data);
-            $data->id = $this->badan->getInsertID();
             $data->upload_foto3x4 = $this->decode->decodebase64($data->upload_foto3x4->base64);
             $data->upload_ijazah = $this->decode->decodebase64($data->upload_ijazah->base64);
             $data->upload_ktp = $this->decode->decodebase64($data->upload_ktp->base64);
+            $this->siswa->save($data);
             if($this->db->transStatus()){
                 $this->db->transCommit();
                 return $this->respondCreated($data);

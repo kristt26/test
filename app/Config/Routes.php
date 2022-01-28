@@ -68,8 +68,12 @@ $routes->group('admin', function ($routes) {
 
 // Instruktur
 $routes->group('instruktur', function ($routes) {
-    $routes->get('', 'admin\home::index');
+    $routes->get('', 'Home::index');
     $routes->get('absen', 'instruktur\Absen::index');
+    $routes->get('kelas', 'instruktur\Kelas::index');
+    $routes->get('kelas/read', 'instruktur\Kelas::read');
+    $routes->post('kelas/post', 'instruktur\Kelas::post');
+    $routes->put('kelas/put', 'instruktur\Kelas::put');
     $routes->get('laporan', 'instruktur\Laporan::index');
 });
 
@@ -85,7 +89,7 @@ $routes->group('siswa', function ($routes) {
     $routes->post('daftar/post', 'siswa\Daftar::post');
     
     $routes->get('absen', 'siswa\Absen::index');
-    $routes->get('absen/read', 'siswa\Absen::read');
+    $routes->get('absen/read/(:any)', 'siswa\Absen::read/$1');
     $routes->post('absen/post', 'siswa\Absen::post');
 });
 

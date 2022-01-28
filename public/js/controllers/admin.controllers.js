@@ -4,6 +4,8 @@ angular.module('adminctrl', [])
     .controller('biodataController', biodataController)
     .controller('formController', formController)
     .controller('daftarController', daftarController)
+    .controller('absenController', absenController)
+    .controller('kelasController', kelasController)
 
     ;
 // Anggota
@@ -369,7 +371,7 @@ function formController($scope, helperServices, biodataServices, message, $sce, 
     $scope.data = [];
     $scope.penilaian = false;
     $scope.formData = {};
-    
+
     $.LoadingOverlay("show");
     biodataServices.get().then(res => {
         $scope.datas = res;
@@ -389,7 +391,7 @@ function formController($scope, helperServices, biodataServices, message, $sce, 
             if (window.localStorage.getItem('biodata')) {
                 $scope.formData = JSON.parse(window.localStorage.getItem('biodata'));
                 $scope.formData.tanggal_lahir = new Date($scope.formData.tanggal_lahir);
-            }else{
+            } else {
                 $scope.formData = res;
             }
         }
@@ -483,7 +485,6 @@ function formController($scope, helperServices, biodataServices, message, $sce, 
 
     }
 }
-
 function daftarController($scope, helperServices, daftarServices, message, $sce) {
     $scope.$emit("SendUp", "Pembobotan Faktor");
     $scope.datas = [];
@@ -494,16 +495,16 @@ function daftarController($scope, helperServices, daftarServices, message, $sce)
     $scope.data = [];
     $scope.penilaian = false;
     $.LoadingOverlay("show");
-    daftarServices.get().then(res=>{
+    daftarServices.get().then(res => {
         $scope.datas = res;
         console.log(res);
         $.LoadingOverlay("hide");
         $.LoadingOverlay("hide");
     });
-    $scope.save = ()=>{
-        message.dialog("Ingin melakukan pendaftaran?", "Ya", "Tidak").then(x=>{
+    $scope.save = () => {
+        message.dialog("Ingin melakukan pendaftaran?", "Ya", "Tidak").then(x => {
             $.LoadingOverlay("show");
-            daftarServices.post($scope.model).then(res=>{
+            daftarServices.post($scope.model).then(res => {
                 $("#exampleModal").modal('hide');
                 $scope.model = {};
                 $.LoadingOverlay("hide");
@@ -511,5 +512,96 @@ function daftarController($scope, helperServices, daftarServices, message, $sce)
                 message.success('Berhasil', "OK");
             })
         })
+    }
+}
+function absenController($scope, helperServices, absenServices, message, $sce, $interval) {
+    $scope.$emit("SendUp", "Pembobotan Faktor");
+    $scope.datas = [];
+    $scope.title = "Biodata Anggota";
+    $scope.model = {};
+    $scope.button1 = true;
+    $scope.head = ""
+    $scope.data = [];
+    $scope.penilaian = false;
+    $scope.hari = new Date().getDay();
+    $scope.time = new Date().getHours();
+    $scope.menit = new Date().getMinutes();
+    $.LoadingOverlay("show");
+    var yyyymmdd = x => (f = x => (x < 10 && '0') + x, x.getFullYear() + '-' + f(x.getMonth() + 1) + '-' + f(x.getDate()));
+    console.log(yyyymmdd(new Date()));
+    absenServices.get(yyyymmdd(new Date())).then(res => {
+        $scope.datas = res;
+        console.log(res);
+        $scope.$applyAsync(x => {
+            $interval(function () {
+                if ($scope.hari >= 0 && $scope.hari <= 6) {
+                    $scope.datas.kursus.forEach(element => {
+                        var mulai = parseInt(element.jam_mulai.split(':')[0]);
+                        var selesai = parseInt(element.jam_selesai.split(':')[0]);
+                        if ($scope.time >= mulai && $scope.time < selesai) {
+                            element.absen = true;
+                        } else {
+                            element.absen = false;
+                        }
+                    });
+                }
+                $scope.counter = $scope.DisplayTime();
+            }, 1000)
+        })
+        $.LoadingOverlay("hide");
+    });
+    $scope.DisplayTime = () => {
+        var CurrentDate = new Date()
+        var hours = CurrentDate.getHours()
+        var minutes = CurrentDate.getMinutes()
+        var seconds = CurrentDate.getSeconds()
+        if (minutes <= 9) minutes = "0" + minutes;
+        if (seconds <= 9) seconds = "0" + seconds;
+        var currentTime = hours + ":" + minutes + ":" + seconds;
+        return currentTime;
+    }
+    $scope.save = (item) => {
+        $.LoadingOverlay("show");
+        absenServices.post(item).then(res => {
+            $.LoadingOverlay("hide");
+            $scope.datas = res;
+            message.success('Absen Berhasil', "OK");
+        })
+        // message.dialog("Ingin melakukan pendaftaran?", "Ya", "Tidak").then(x => {
+        // })
+    }
+}
+function kelasController($scope, helperServices, kelasServices, message, $sce) {
+    $scope.$emit("SendUp", "Pembobotan Faktor");
+    $scope.datas = [];
+    $scope.title = "Biodata Anggota";
+    $scope.model = {};
+    $scope.button1 = true;
+    $scope.head = ""
+    $scope.data = [];
+    $scope.penilaian = false;
+    $.LoadingOverlay("show");
+    kelasServices.get().then(res => {
+        $scope.datas = res;
+        console.log(res);
+        $.LoadingOverlay("hide");
+    });
+    $scope.save = (item) => {
+        console.log(item);
+        // $.LoadingOverlay("show");
+        if (item.id) {
+            kelasServices.put(item).then(res => {
+                // $.LoadingOverlay("hide");
+            })
+        }else{
+            kelasServices.post(item, $scope.model.id).then(res => {
+                // $.LoadingOverlay("hide");
+            })
+        }
+        // message.dialog("Ingin melakukan pendaftaran?", "Ya", "Tidak").then(x => {
+        // })
+    }
+    $scope.setAbsen = (item) => {
+        $scope.model = item;
     }
 }

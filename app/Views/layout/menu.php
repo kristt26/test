@@ -44,3 +44,12 @@ if(session()->get('akses') == 'Admin') :?>
             Siswa</span></a></li>
 
 <?php endif;?>
+
+<?php if(session()->get('akses') =='Instruktur') :?>
+<li class="menu-header">Navbar Menu</li>
+<li><a class="nav-link" href="<?= base_url('/Instruktur')?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+<li><a class="nav-link" href="<?= base_url('instruktur/kelas')?>"><i class="fas fa-file-alt"></i> <span>Kelas
+            Kursus</span></a></li>
+<li><a class="nav-link" href="<?= base_url('siswa/daftar')?>"><i class="fas fa-file"></i> <span>Laporan Absen</span></a>
+</li>
+<?php endif;?>

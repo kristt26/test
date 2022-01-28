@@ -33,7 +33,7 @@ class Instruktur extends BaseController
        
             $user = [
                 'username' => $this->request->getVar('username'),
-                'password' => $this->request->getVar('password') ,
+                'password' => md5($this->request->getVar('password')),
                 'email' => $this->request->getVar('email'),
                 'akses' => 'Instruktur',
             ];

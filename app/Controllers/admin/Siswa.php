@@ -61,10 +61,11 @@ class Siswa extends BaseController
             'id_user'=> $iduser,
         ];
         $this->siswa->insert($data);
-        $data['id'] = $iduser;
+        $data['uid'] = $iduser;
         $data['username'] = $user['username'];
         $data['email'] = $user['email'];
         $data['akses'] = $user['akses'];
+        $data['nama'] = $data['nama_siswa'];
         session()->set($data);
         return redirect()->to(base_url('home'))->with('success', 'Silahkan Lengkapi Biodata');
         

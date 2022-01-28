@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between">
                 <h4>Daftar Program</h4>
-                <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Daftar Program</button> -->
+                <h4>{{counter}}</h4>
             </div>
             <div class="card-body">
                 <div class="table-respinsive">
@@ -20,11 +20,9 @@
                             <tr>
                                 <th>No</th>
                                 <th>Program Kursus</th>
-                                <th>Waktu Kursus</th>
                                 <th>Jam Mulai</th>
                                 <th>Jam Selesai</th>
-                                <th>Instruktur</th>
-                                <th>Status</th>
+                                <th>Absen</th>
                                 <!-- <th><i class="fa fa-cog"></i></th> -->
                             </tr>
                         </thead>
@@ -32,11 +30,12 @@
                             <tr ng-repeat="item in datas.kursus">
                                 <td>{{$index+1}}</td>
                                 <td>{{item.program_kursus}}</td>
-                                <td>{{item.waktu}}</td>
                                 <td>{{item.jam_mulai}}</td>
                                 <td>{{item.jam_selesai}}</td>
-                                <td>{{item.nm_instruktur}}</td>
-                                <td>{{item.status}}</td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm" ng-if="item.absen && item.presensi.length==0"
+                                        ng-click="save(item)">Absen</button>{{item.presensi.length>0 ? 'Hadir' : ''}}
+                                </td>
                                 <!-- <td></td> -->
                             </tr>
                         </tbody>

@@ -10,6 +10,16 @@ class Authentication extends BaseController
     }
     public function index()
     {
+        $cek = $this->user->find();
+        if(count($cek)==0){
+            $user=[
+              'username'=>'Administrasi',
+              'password'=>md5('admin'),
+              'email'=>'admin@mail.com',
+              'akses'=>'Admin'
+            ];
+            $this->user->save($user);
+        }
         return view('login');
     }
 
@@ -35,7 +45,7 @@ class Authentication extends BaseController
                     return redirect()->to(base_url('admin'));
                 }else if($user->akses=='Instruktur'){
                     $ins = new \App\Models\InstrukturModel();
-                    $instruktur = $ins->where('tb_user_id', $user->id)->get()->getRowObject();
+                    $instruktur = $ins->where('id_user', $user->id)->get()->getRowObject();
                     $item = [
                         'uid'=> $user->id,
                         'nama'=> $instruktur->nm_instruktur,

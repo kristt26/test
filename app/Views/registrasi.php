@@ -42,7 +42,7 @@
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label>NIK</label>
-                                        <input type="text" class="form-control" name="NIK" autofocus>
+                                        <input type="text" class="form-control" name="nik" autofocus>
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="last_name">Nama Siswa</label>

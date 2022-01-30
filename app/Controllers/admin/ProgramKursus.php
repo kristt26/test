@@ -50,6 +50,6 @@ class ProgramKursus extends BaseController
     public function update($id_program = null){
         $data = $this->request->getPost();
         $this->programkursus->update($id_program,$data);
-        return redirect()->to(site_url('programkursus'))->with('success', 'Data programkursus Berhasil Di Ubah');
+        return redirect()->to(base_url('admin/programkursus'))->with('success', 'Data programkursus Berhasil Di Ubah');
     }
 }

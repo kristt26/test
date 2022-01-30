@@ -3,7 +3,8 @@
 <section class="section">
     <div class="section-header">
         <div class="section-header-button">
-            <a href="<?= site_url('detailkelas/add')?>" class="btn btn-primary"><i class="fas fa-database"></i> Tambah
+            <a href="<?= base_url('admin/detailkelas/add')?>" class="btn btn-primary"><i class="fas fa-database"></i>
+                Tambah
                 Kelas Kursus</a>
         </div>
     </div>

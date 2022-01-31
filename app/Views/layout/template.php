@@ -2,6 +2,7 @@
 <html lang="en" ng-app="apps">
 
 <head>
+
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <title>Buku Induk Siswa</title>
@@ -20,7 +21,6 @@
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/components.css">
     <!-- CSS Libraries -->
-
 
 </head>
 
@@ -133,5 +133,6 @@
 <script src="<?=base_url()?>/libs/calendar/locales-all.min.js"></script>
 <script src="<?=base_url()?>/libs/angularjs-currency-input-mask/dist/angularjs-currency-input-mask.min.js">
 </script>
+
 
 </html>

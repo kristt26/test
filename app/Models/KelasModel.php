@@ -20,18 +20,16 @@ class KelasModel extends Model
         return $query->getResult();
 
     }
-    public function getKelas($id=null){
+    public function getKelas(){
         $data = $this->db->query("SELECT
+        `tb_program`.`program_kursus`,
+        `tb_kelas`.`id_program`,
         `tb_kelas`.`id`,
         `tb_kelas`.`waktu`,
         `tb_kelas`.`jam_mulai`,
-        `tb_kelas`.`jam_selesai`,
-        `tb_instruktur`.`nm_instruktur`,
-        `tb_program`.`program_kursus`
+        `tb_kelas`.`jam_selesai`
       FROM
         `tb_kelas`
-        INNER JOIN `tb_instruktur` ON `tb_instruktur`.`id_instruktur` =
-      `tb_kelas`.`id_instruktur`
         INNER JOIN `tb_program` ON `tb_program`.`id_program` = `tb_kelas`.`id_program`")->getResultObject();
         return $data;
       }

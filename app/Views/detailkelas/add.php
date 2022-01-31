@@ -5,7 +5,7 @@
         <div class="section-header-back">
             <a href="<?= site_url('admin/detailkelas')?>" class="btn"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <h1>Kelas Kursus</h1>
+        <h1>Daftar Kelas</h1>
 
     </div>
 
@@ -25,28 +25,29 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
+                                <label>Program Kursus</label>
+                                <select class="form-control select2 " name="id_program" required>
+                                    <?php foreach ($kelas as $key => $value)  : ?>
+                                    <option value="<?= $value->id_program?>"><?= $value->program_kursus?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
                                 <label>Kelas Kursus</label>
-                                <select class="form-control select2 " name="waktu" required>
+                                <select class="form-control select2 " name="id_kelas" required>
                                     <?php foreach ($kelas as $key => $value)  : ?>
                                     <option value="<?= $value->id?>"><?= $value->waktu?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                            <div class="form-group col-md-4">
-                                <label>Program Kursus</label>
-                                <select class="form-control select2 " name="id" required>
-                                    <?php foreach ($kelas as $key => $value)  : ?>
-                                    <option value="<?= $value->id?>"><?= $value->program_kursus?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
+
 
 
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label>Jam Kursus</label>
-                                <select class="form-control select2 " name="id" required>
+                                <select class="form-control select2 " name="id_kelas" required>
                                     <?php foreach ($kelas as $key => $value)  : ?>
                                     <option value="<?= $value->id?>"><?= $value->jam_mulai?> -
                                         <?= $value->jam_selesai?>

@@ -5,13 +5,13 @@
         <div class="section-header-button">
             <a href="<?= base_url('admin/detailkelas/add')?>" class="btn btn-primary"><i class="fas fa-database"></i>
                 Tambah
-                Kelas Kursus</a>
+                Daftar Kelas</a>
         </div>
     </div>
 
     <div class="section-body">
         <div class="card"><br>
-            <h4 align="center">Data Peserta Kursus</h4>
+            <h4 align="center">Data Kelas Siswa</h4>
             <div id="flash" data-flash="<?= session()->getFlashdata('success'); ?>"></div>
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md">
@@ -24,7 +24,6 @@
                             <th>Jam Kursus</th>
                             <th>Status</th>
                             <th class="text-center">Opsi</th>
-                            <th class="text-center">Opsi Status</th>
                         </tr>
 
                         <?php foreach ($detailkelas as $key => $value) :?>
@@ -36,11 +35,6 @@
                             <td><?= $value->jam_mulai?> - <?= $value->jam_selesai?></td>
                             <td>
                                 <?= $value->status?>
-                            </td>
-                            <td class="text-center" style="width: 95px;">
-                                <a href="" class="btn btn-warning btn-sm"><i class="fas fa-pencil-alt"></i></a>
-
-
                             </td>
 
                             <td class="text-center" style="width: 189px;">

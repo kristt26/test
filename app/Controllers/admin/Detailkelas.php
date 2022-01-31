@@ -34,7 +34,7 @@ class Detailkelas extends BaseController
         // $data['detailkelas']= $this->detailkelas->getDetail();
         // $data['programkursus']= $this->programkursus->findAll();
         $data['kelas']= $this->kelas->getKelas();
-        // dd($data);
+        // dd($data);        
         return view('detailkelas/add',$data);
     }
     
@@ -42,7 +42,7 @@ class Detailkelas extends BaseController
     {
         $data = $this->request->getPost();
         $this->detailkelas->insert($data);
-  
+   
         return redirect()->to(base_url('admin/detailkelas'))->with('success', 'Peserta Kursus Berhasil Di Tambahkan');
     }
 

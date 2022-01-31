@@ -1,8 +1,6 @@
 <?= $this->extend('layout/template')?>
 <?= $this->section('content')?>
-<script>
-$.LoadingOverlay("show");
-</script>
+
 <section class="section">
     <div class="section-header">
         <div class="section-header-button">
@@ -16,7 +14,7 @@ $.LoadingOverlay("show");
         <div class="card"><br>
             <h4 align="center">Data Program Kursus</h4>
             <div class="card-body table-responsive">
-                <table class="table table-striped table-md">
+                <table id="example" class="table table-striped table-md">
                     <tbody>
                         <tr>
                             <th>No</th>
@@ -40,7 +38,6 @@ $.LoadingOverlay("show");
         </div>
     </div>
 </section>
-<script>
-$.LoadingOverlay("hide");
-</script>
+
+
 <?= $this->endSection()?>

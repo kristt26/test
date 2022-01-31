@@ -47,17 +47,6 @@ class KelasModel extends Model
         }
         return $kelas;
     }
-    public function getKelas(){
-        $data = $this->db->query("SELECT
-        `tb_program`.`program_kursus`,
-        `tb_kelas`.`id_program`,
-        `tb_kelas`.`id`,
-        `tb_kelas`.`waktu`,
-        `tb_kelas`.`jam_mulai`,
-        `tb_kelas`.`jam_selesai`
-      FROM
-        `tb_kelas`
-        INNER JOIN `tb_program` ON `tb_program`.`id_program` = `tb_kelas`.`id_program`")->getResultObject();
-        return $data;
-      }
+   
+      
 }

@@ -28,23 +28,7 @@ class Detailkelas extends BaseController
         return view('detailkelas/get',$data);
     }
     
-    public function create()
-    {
-        $data['siswa']= $this->siswa->findAll();
-        // $data['detailkelas']= $this->detailkelas->getDetail();
-        // $data['programkursus']= $this->programkursus->findAll();
-        $data['kelas']= $this->kelas->getKelas();
-        // dd($data);        
-        return view('detailkelas/add',$data);
-    }
     
-    public function save()
-    {
-        $data = $this->request->getPost();
-        $this->detailkelas->insert($data);
-   
-        return redirect()->to(base_url('admin/detailkelas'))->with('success', 'Peserta Kursus Berhasil Di Tambahkan');
-    }
 
     public function updatestatus(){
         $data = $this->request->getGet();

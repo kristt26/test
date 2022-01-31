@@ -30,6 +30,9 @@ if(session()->get('akses') == 'Admin') :?>
 <li class="<?= session()->get('active') == 'siswa' ? 'active':''; ?>"><a class="nav-link"
         href="<?= base_url('admin/siswa')?>"><i class="fas fa-users"></i></i>
         <span>Peserta didik</span></a></li>
+<li class="<?= session()->get('active') == 'alumni' ? 'active':''; ?>"><a class="nav-link"
+        href="<?= base_url('admin/alumni')?>"><i class="fas fa-users"></i></i>
+        <span>Data Alumni</span></a></li>
 
 <?php endif;?>
 

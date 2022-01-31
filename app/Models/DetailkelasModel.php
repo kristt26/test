@@ -83,7 +83,20 @@ class DetailkelasModel extends Model
     }
     
 
-    
+    public function getAlumni(){
+      $data = $this->db->query("SELECT
+      `tb_siswa`.`nama_siswa`,
+      `tb_siswa`.`jenis_kelamin`,
+      `tb_siswa`.`alamat`,
+      `tb_siswa`.`nohp`,
+      `tb_detailkelas`.`id`,
+      `tb_detailkelas`.`status`,
+      `tb_siswa`.`tahun_masuk`
+    FROM
+      `tb_detailkelas`
+      RIGHT JOIN `tb_siswa` ON `tb_siswa`.`id_siswa` = `tb_detailkelas`.`id_siswa` WHERE status='Lulus' ORDER BY id DESC")->getResult();
+       return $data;
+     }
    
 
    

@@ -21,24 +21,25 @@
                             <th>Alamat</th>
                             <th>No Telp</th>
                             <th>Tahun Masuk</th>
-                            <th>Tahun Keluar</th>
                             <th>Keterangan</th>
-                            <th class="text-center">Opsi</th>
                         </tr>
-                        <?php foreach ($alumni as $key => $value) :?>
+                        <?php 
+                        $no=0
+                        ?>
+                        <?php foreach ($detailkelas as $key => $value) :?>
+                        <?php if ($value->status=='Lulus'):?>
+                        <?php $no++?>
                         <tr>
-                            <td><?= $key+1?></td>
+                            <td><?= $no?></td>
                             <td><?= $value->nama_siswa?></td>
                             <td><?= $value->alamat?></td>
                             <td><?= $value->nohp?></td>
                             <td><?= $value->tahun_masuk?></td>
-                            <td><?= $value->tahun_keluar?></td>
-                            <td><?= $value->keterangan?></td>
+                            <td><?= $value->status?></td>
 
-                            <td class="text-center" style="width: 2px;">
-                                <a href="" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
-                            </td>
+
                         </tr>
+                        <?php endif?>
                         <?php endforeach?>
                     </tbody>
                 </table>

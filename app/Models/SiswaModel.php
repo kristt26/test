@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use mysqli;
 
 class SiswaModel extends Model
 {
@@ -36,6 +37,8 @@ class SiswaModel extends Model
      `tb_siswa` WHERE id_siswa = $id_siswa")->getResultArray();
      return $data;
    }
+
+   
  
     
     

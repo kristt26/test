@@ -19,7 +19,7 @@
                     <tbody>
                         <tr>
                             <th>No</th>
-                            <th>NIK</th>
+                            <th>nik</th>
                             <th>Nama</th>
                             <th>Username</th>
                             <th>Password</th>

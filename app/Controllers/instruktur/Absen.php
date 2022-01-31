@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Siswa;
+namespace App\Controllers\Instruktur;
 
 use CodeIgniter\API\ResponseTrait;
 use App\Controllers\BaseController;
@@ -10,7 +10,6 @@ class Absen extends BaseController
     use ResponseTrait;
     public function __construct() {
         $this->siswa = new \App\Models\SiswaModel();
-        session()->set(['active' => 'absen']);
         $this->decode = new \App\Libraries\Decode();
         $this->detail = new \App\Models\DetailkelasModel();
         $this->absen = new \App\Models\AbsenModel();
@@ -18,7 +17,7 @@ class Absen extends BaseController
     }
     public function index()
     {
-        return view('siswa/absen');
+        return view('instruktur/kelas');
     }
 
     public function read($tanggal)

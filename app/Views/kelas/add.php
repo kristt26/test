@@ -34,7 +34,7 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Kelas Kursus</label>
-                                <select class="form-control" name="waktu">
+                                <select class="form-control" name="waktu" required>
                                     <option></option>
                                     <option>Pagi</option>
                                     <option>Siang</option>
@@ -47,13 +47,13 @@
                             <div class="form-group col-md-4">
                                 <label>Jam Mulai</label>
                                 <div class="input-group">
-                                    <input type="time" class="form-control" name="jam_mulai">
+                                    <input type="time" class="form-control" name="jam_mulai" required>
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Jam Selesai</label>
                                 <div class="input-group">
-                                    <input type="time" class="form-control" name="jam_selesai">
+                                    <input type="time" class="form-control" name="jam_selesai" required>
                                 </div>
                             </div>
 

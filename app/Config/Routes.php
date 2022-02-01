@@ -38,7 +38,7 @@ $routes->post('registrasi', 'admin\Siswa::save');
 // $routes->get('registrasi', 'admin\Siswa::get');
 
 //Dashboar Administrasi
-$routes->group('admin', function ($routes) {
+$routes->group('admin',function ($routes) {
     $routes->get('', 'home::index');
     $routes->get('siswa', 'admin\Siswa::index');
     $routes->get('kelas', 'admin\Kelas::index');

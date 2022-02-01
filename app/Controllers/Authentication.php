@@ -40,6 +40,7 @@ class Authentication extends BaseController
                         'username'=> $user->username,
                         'email'=> $user->email,
                         'akses'=> $user->akses,
+                        'login'=>true
                     ];
                     session()->set($item);
                     return redirect()->to(base_url('admin'));

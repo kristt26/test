@@ -20,7 +20,7 @@
                                 <label>Nama Siswa</label>
                                 <select class="form-control select2 " name="id_siswa" required>
                                     <?php foreach ($siswa as $key => $value)  : ?>
-                                    <option value="<?= $value->id_siswa?>"><?= $value->nama_siswa?></option>
+                                    <option value="<?= $value->id_siswa?>"><?= $value->nama?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

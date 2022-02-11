@@ -39,7 +39,7 @@ class Kelas extends BaseController
            $data = $this->request->getPost();
            $this->kelaskursus->insert($data);
      
-           return redirect()->to(site_url('admin/kelas'))->with('success', 'Data Kelas Kursus Berhasil Di Tambahkan');
+           return redirect()->to(base_url('admin/kelas'))->with('success', 'Data Kelas Kursus Berhasil Di Tambahkan');
     }
     public function edit($id = null){
         $data['instruktur'] = $this->instruktur->findAll();
@@ -55,6 +55,6 @@ class Kelas extends BaseController
     public function update($id = null){ 
         $data = $this->request->getPost();
         $this->kelaskursus->update($id,$data);
-        return redirect()->to(site_url('admin/kelas'))->with('success', 'Data kelaskursus Berhasil Di Ubah');
+        return redirect()->to(base_url('admin/kelas'))->with('success', 'Data kelaskursus Berhasil Di Ubah');
     }
 }

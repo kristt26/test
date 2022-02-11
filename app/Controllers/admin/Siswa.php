@@ -56,7 +56,7 @@ class Siswa extends BaseController
         $this->user->insert($user);
         $iduser = $this->user->getInsertID();
         $data = [
-            'NIK' => $this->request->getVar('NIK'),
+            'nik' => $this->request->getVar('nik'),
             'nama_siswa' => $this->request->getVar('nama_siswa'),
             'id_user'=> $iduser,
         ];
@@ -67,7 +67,8 @@ class Siswa extends BaseController
         $data['akses'] = $user['akses'];
         $data['nama'] = $data['nama_siswa'];
         session()->set($data);
-        return redirect()->to(base_url('home'))->with('success', 'Silahkan Lengkapi Biodata');
+        // dd($data);
+        return redirect()->to(base_url('siswa'))->with('success', 'Silahkan Lengkapi Biodata');
         
     }
 
@@ -99,11 +100,6 @@ class Siswa extends BaseController
     //     return redirect()->to(site_url('siswa'))->with('success', 'Data Siswa Berhasil DiUbah');
     // }
 
-    // public function print(){
-    //     $data['siswa'] = $this->siswa->getAll; 
-    //     return view('siswa/print',$data);
-    // }
-
-   
+  
     
 }

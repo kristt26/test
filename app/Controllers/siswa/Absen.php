@@ -10,6 +10,7 @@ class Absen extends BaseController
     use ResponseTrait;
     public function __construct() {
         $this->siswa = new \App\Models\SiswaModel();
+        session()->set(['active' => 'absen']);
         $this->decode = new \App\Libraries\Decode();
         $this->detail = new \App\Models\DetailkelasModel();
         $this->absen = new \App\Models\AbsenModel();

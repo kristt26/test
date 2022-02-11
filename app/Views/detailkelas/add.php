@@ -5,7 +5,7 @@
         <div class="section-header-back">
             <a href="<?= site_url('admin/detailkelas')?>" class="btn"><i class="fas fa-arrow-left"></i></a>
         </div>
-        <h1>Kelas Kursus</h1>
+        <h1>Daftar Kelas</h1>
 
     </div>
 
@@ -20,14 +20,14 @@
                                 <label>Nama Siswa</label>
                                 <select class="form-control select2 " name="id_siswa" required>
                                     <?php foreach ($siswa as $key => $value)  : ?>
-                                    <option value="<?= $value->id_siswa?>"><?= $value->nama_siswa?></option>
+                                    <option value="<?= $value->id_siswa?>"><?= $value->nama?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Program Kursus</label>
                                 <select class="form-control select2 " name="id_program" required>
-                                    <?php foreach ($programkursus as $key => $value)  : ?>
+                                    <?php foreach ($kelas as $key => $value)  : ?>
                                     <option value="<?= $value->id_program?>"><?= $value->program_kursus?></option>
                                     <?php endforeach; ?>
                                 </select>
@@ -40,6 +40,8 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+
+
 
                         </div>
                         <div class="form-row">

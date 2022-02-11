@@ -3,7 +3,7 @@
 <section class="section">
     <div class="section-header">
         <div class="section-header-button">
-            <a href="<?= site_url('admin/kelas/add')?>" class="btn btn-primary"><i class="fas fa-database"></i>
+            <a href="<?= base_url('admin/kelas/add')?>" class="btn btn-primary"><i class="fas fa-database"></i>
                 Tambah
                 Data</a>
         </div>
@@ -14,8 +14,8 @@
             <h4 align="center">Data Kelas Kursus</h4>
             <div id="flash" data-flash="<?= session()->getFlashdata('success'); ?>"></div>
             <div class="card-body table-responsive">
-                <table class="table table-striped table-md">
-                    <tbody>
+                <table class="table table-striped table-md" id="myTable">
+                    <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama Instruktur</th>
@@ -24,6 +24,8 @@
                             <th>Program Kursus</th>
                             <th class="text-center">Opsi</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <?php foreach ($kelaskursus as $key => $value) :?>
                         <tr>
                             <td><?= $key +1?></td>

@@ -40,8 +40,10 @@ class Authentication extends BaseController
                         'username'=> $user->username,
                         'email'=> $user->email,
                         'akses'=> $user->akses,
+                        'login'=>true
                     ];
                     session()->set($item);
+                    session()->setFlashdata('pesan', 'Success,Berhasil Login');
                     return redirect()->to(base_url('admin'));
                 }else if($user->akses=='Instruktur'){
                     $ins = new \App\Models\InstrukturModel();
@@ -54,7 +56,7 @@ class Authentication extends BaseController
                         'akses'=> $user->akses,
                     ];
                     session()->set($item);
-                    return redirect()->to(base_url('siswa'));
+                    return redirect()->to(base_url('instruktur'));
                 }else{
                     $sis = new \App\Models\SiswaModel();
                     $siswa = $sis->where('id_user', $user->id)->get()->getRowObject();
@@ -69,13 +71,18 @@ class Authentication extends BaseController
                     return redirect()->to(base_url('siswa'));
                 }
             }else{
-               echo "password tidka di kenali";
+                session()->setFlashdata('pesan', 'Error,Silahkan cek kembali Password anda');
+                return redirect()->back();
+            //    return redirect()->back()->with('error', 'Password tidak ditemukan');
             }
+        }else{
+            session()->setFlashdata('pesan', 'Error,Silahkan cek kembali Username anda');
+            return redirect()->back();
         }
         
     }
     public function logout(){
         session()->destroy();
-        return redirect()->to('/');
+        return redirect()->to('');
     }
 }

@@ -25,21 +25,27 @@ class DetailkelasModel extends Model
 
     public function getDetail()
     {
-      $data = $this->db->query("SELECT
-          `tb_kelas`.`waktu`,
-          `tb_kelas`.`jam_mulai`,
-          `tb_kelas`.`jam_selesai`,
-          `tb_detailkelas`.*,
-          `tb_siswa`.`nama_siswa`,
-          `tb_program`.`program_kursus`
-        FROM
-          `tb_detailkelas`
-          RIGHT JOIN `tb_kelas` ON `tb_kelas`.`id` = `tb_detailkelas`.`id_kelas`
-          RIGHT JOIN `tb_program` ON `tb_program`.`id_program` = `tb_kelas`.`id_program`
-          RIGHT JOIN `tb_siswa` ON `tb_siswa`.`id_siswa` = `tb_detailkelas`.`id_siswa`")->getResult();
+        $data = $this->db->query("SELECT
+        `tb_program`.`program_kursus`,
+        `tb_kelas`.`waktu`,
+        `tb_kelas`.`jam_mulai`,
+        `tb_kelas`.`jam_selesai`,
+        `tb_siswa`.`nama_siswa`,
+        `tb_siswa`.`nis`,
+        `tb_detailkelas`.`id`,
+        `tb_detailkelas`.`status`,
+        `tb_detailkelas`.`id_siswa`,
+        -- `tb_detailkelas`.`nis`,
+        `tb_kelas`.`id_program`
+      FROM
+        `tb_detailkelas`
+        RIGHT JOIN `tb_kelas` ON `tb_kelas`.`id` = `tb_detailkelas`.`id_kelas`
+        RIGHT JOIN `tb_program` ON `tb_program`.`id_program` = `tb_kelas`.`id_program`
+        INNER JOIN `tb_siswa` ON `tb_siswa`.`id_siswa` = `tb_detailkelas`.`id_siswa`")->getResultObject();
       return $data;
     }
-
+    
+    
     public function kursusSiswa($id_user)
     {
       return $this->db->query("SELECT
@@ -91,7 +97,29 @@ class DetailkelasModel extends Model
     }
     
 
-    
+    public function getAlumni(){
+      $data = $this->db->query("SELECT
+      `tb_siswa`.`nama_siswa`,
+      `tb_siswa`.`jenis_kelamin`,
+      `tb_siswa`.`alamat`,
+      `tb_siswa`.`nohp`,
+      `tb_detailkelas`.`id`,
+      `tb_detailkelas`.`status`,
+      `tb_siswa`.`tahun_masuk`
+    FROM
+      `tb_detailkelas`
+      RIGHT JOIN `tb_siswa` ON `tb_siswa`.`id_siswa` = `tb_detailkelas`.`id_siswa` WHERE status='Lulus' ORDER BY id DESC")->getResult();
+       return $data;
+     }
+
+    //  function NisSiswa(){
+    //    $auto = mysqli_query("SELECT max(nis) as max_code from tb_siswa");
+    //    $data = mysqli_fetch_array($auto);
+    //    $code = $data['max_code'];
+    //    $urutan = (int)substr($code, 3000);
+    //    $urutan++;
+    //    $nis = $urutan;
+    //  }
    
 
    

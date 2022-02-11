@@ -39,7 +39,7 @@
                             <div class="card-header">
                                 <h4>Login</h4>
                             </div>
-                            <div id="gagal" data-flash="<?= session()->getFlashdata('gagal'); ?>"></div>
+                            <div id="gagal" data-flash="<?= session()->getFlashdata('error'); ?>"></div>
 
                             <div class="card-body">
                                 <?= form_open(base_url('process')) ?>
@@ -99,6 +99,25 @@
 
     <!-- JS Libraies -->
     <script src="<?= base_url()?>/template/assets/SweetAlert/sweet.js"></script>
+    <script>
+    var pesan = "<?= session()->getFlashdata('pesan') ?>";
+    const swal = pesan.split(',');
+    if (swal.length > 1) {
+        if (swal[0] == 'Success') {
+            Swal.fire({
+                title: 'Success!',
+                text: swal[1],
+                icon: 'success'
+            })
+        } else {
+            Swal.fire({
+                title: 'Error!',
+                text: swal[1],
+                icon: 'error'
+            })
+        }
+    }
+    </script>
     <!-- Template JS File -->
     <script src="<?= base_url()?>/template/assets/js/scripts.js"></script>
     <script src="<?= base_url()?>/template/assets/js/custom.js"></script>

@@ -11,4 +11,7 @@
         <ui-view></ui-view>
     </div>
 </section>
+<!-- <script>
+$.LoadingOverlay("hide");
+</script> -->
 <?= $this->endSection()?>

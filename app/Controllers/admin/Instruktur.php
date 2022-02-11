@@ -46,7 +46,7 @@ class Instruktur extends BaseController
                 'id_user'=> $iduser,
             ];
             $this->instruktur->insert($data);
-            return redirect()->to(site_url('instruktur'))->with('success', 'Data Instruktur Berhasil Di Registrasi');
+            return redirect()->to(base_url('admin/instruktur'))->with('success', 'Data Instruktur Berhasil Di Registrasi');
     }
 
     public function edit($id_instruktur = null){
@@ -66,7 +66,7 @@ class Instruktur extends BaseController
         $data = $this->request->getPost();
         $this->instruktur->update($id_instruktur,$data);
         // $this->user->update($data);
-        return redirect()->to(site_url('instruktur'))->with('success', 'Data Instruktur Di Berhasil Ubah');
+        return redirect()->to(base_url('admin/instruktur'))->with('success', 'Data Instruktur Di Berhasil Ubah');
     }
 
     

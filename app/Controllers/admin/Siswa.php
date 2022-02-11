@@ -41,12 +41,45 @@ class Siswa extends BaseController
    
 
     public function registrasi(){
-        $data['user']= $this->user->findAll();
-        $data['siswa']= $this->siswa->getUser();
+        $data=[
+            'user' => $this->user->findAll(),
+            'siswa' => $this->siswa->getUser(),
+            'validation' => \Config\Services::validation()
+        ];
         return view('registrasi',$data);
     }
     
     public function save(){
+
+        if (!$this->validate([
+            'nik' => [
+               'rules'	=> 'required|is_unique[tb_siswa.nik]|numeric|max_length[16]|min_length[16]',
+               'errors'	=> [
+                   'required'	=> 'Tidak Boleh Kosong',
+                   'is_unique'	=> 'Program Kursus Sudah Ada',
+                   'max_length'	=> 'Maksimal 16 Digit',
+                   'min_length'	=> 'Minimal 16 Digit',
+                   'numeric'	=> 'NIK Harus Berisi Angka'
+               ]
+           ],
+            'nama_siswa' => [
+               'rules'	=> 'required|alpha_space',
+               'errors'	=> [
+                   'required'	=> 'Tidak Boleh Kosong',
+                   'alpha_space'	=> 'Nama Harus Berisi Karakter/Huruf',
+               ]
+           ],
+            'username' => [
+               'rules'	=> 'required|is_unique[tb_user.username]|alpha_numeric',
+               'errors'	=> [
+                   'required'	=> 'Tidak Boleh Kosong',
+                   'is_unique'	=> 'Username Sudah Ada',
+                   'alpha_numeric'	=> 'Username Harus Berisi Karakter dan Angka'
+               ]    
+           ],
+       ])) {
+            return redirect()->back()->withInput();
+        }
         $user = [
             'username' => $this->request->getVar('username'),
             'password' => md5($this->request->getVar('password')),

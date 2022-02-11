@@ -42,29 +42,42 @@
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label>NIK</label>
-                                        <input type="text" class="form-control" name="nik" autofocus required>
+                                        <input type="text"
+                                            class="form-control <?= ($validation->hasError('nik'))?'is-invalid' : '' ?>"
+                                            name="nik" autofocus>
+                                        <div id="validationServer03Feedback" class="invalid-feedback">
+                                            <?= ($validation->getError('nik'))?>
+                                        </div>
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="last_name">Nama Siswa</label>
-                                        <input id="last_name" type="text" class="form-control" name="nama_siswa"
-                                            required>
+                                        <input id="last_name" type="text"
+                                            class="form-control <?= ($validation->hasError('nama_siswa'))?'is-invalid' : '' ?>"
+                                            name="nama_siswa">
+                                        <div id="validationServer03Feedback" class="invalid-feedback">
+                                            <?= ($validation->getError('nama_siswa'))?>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input id="email" type="email" class="form-control" name="email" required>
+                                    <input id="email" type="email" class="form-control" name="email">
                                     <div class="invalid-feedback">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label for="first_name">Username</label>
-                                        <input id="first_name" type="text" class="form-control" name="username"
-                                            autofocus required>
+                                        <input id="first_name" type="text"
+                                            class="form-control <?= ($validation->hasError('username'))?'is-invalid' : '' ?>"
+                                            name="username" autofocus>
+                                        <div id="validationServer03Feedback" class="invalid-feedback">
+                                            <?= ($validation->getError('username'))?>
+                                        </div>
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="last_name">Password</label>
-                                        <input id="last_name" type="text" class="form-control" name="password" required>
+                                        <input id="last_name" type="text" class="form-control" name="password">
                                     </div>
                                 </div>
                                 <div class="form-group">

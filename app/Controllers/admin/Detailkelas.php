@@ -99,6 +99,7 @@ class Detailkelas extends BaseController
             'id_siswa' => $id_siswa,
             'nis'=> $this->request->getVar('nis')
         ]);
+        session()->setFlashdata('pesan', 'Success, NIS Berhasil Di Tambah');
         return redirect()->to('admin/detailkelas');
 
     }

@@ -68,7 +68,7 @@ $routes->group('admin',['filter' => 'Authcek'],function ($routes) {
 });
 
 // Instruktur
-$routes->group('instruktur',['filter' => 'Authcek'], function ($routes) {
+$routes->group('instruktur', function ($routes) {
     $routes->get('', 'Home::index');
     $routes->get('absen', 'instruktur\Absen::index');
     $routes->get('kelas', 'instruktur\Kelas::index');

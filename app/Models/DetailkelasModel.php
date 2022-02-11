@@ -11,6 +11,18 @@ class DetailkelasModel extends Model
     protected $returnType       = 'object';
     protected $allowedFields    = ['id_siswa','id_kelas','status'];
 
+    public function get_daftar($id)
+    {
+      $data = $this->db->query("SELECT
+        `tb_detailkelas`.*,
+        `tb_siswa`.`nama_siswa`
+      FROM
+        `tb_detailkelas`
+        LEFT JOIN `tb_kelas` ON `tb_detailkelas`.`id_kelas` = `tb_kelas`.`id`
+        LEFT JOIN `tb_siswa` ON `tb_detailkelas`.`id_siswa` = `tb_siswa`.`id_siswa` WHERE `tb_detailkelas`.`status`='Aktif' AND `tb_kelas`.`id`='$id'")->getResult();
+      return $data;
+    }
+
     public function getDetail()
     {
       $data = $this->db->query("SELECT

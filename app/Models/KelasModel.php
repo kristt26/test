@@ -47,6 +47,31 @@ class KelasModel extends Model
         }
         return $kelas;
     }
-   
-      
+
+    public function by_instruktur()
+    {
+        $id = session()->get('uid');
+        $data = $this->db->query("SELECT
+            `tb_kelas`.*,
+            `tb_program`.`program_kursus`
+        FROM
+            `tb_kelas`
+            LEFT JOIN `tb_instruktur` ON `tb_kelas`.`id_instruktur` =
+        `tb_instruktur`.`id_instruktur`
+            LEFT JOIN `tb_user` ON `tb_instruktur`.`id_user` = `tb_user`.`id`
+            LEFT JOIN `tb_program` ON `tb_program`.`id_program` = `tb_kelas`.`id_program`
+        WHERE `tb_user`.`id` = '$id'")->getResult();
+        return $data;
+    }
+
+    public function kelas_by_id($id)
+    {
+        return $this->db->query("SELECT
+            `tb_kelas`.*,
+            `tb_program`.`program_kursus`
+        FROM
+            `tb_kelas`
+            LEFT JOIN `tb_program` ON `tb_kelas`.`id_program` = `tb_program`.`id_program` WHERE `tb_kelas`.`id`='$id'")->getRow();
+    }
+    
 }

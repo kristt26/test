@@ -76,6 +76,7 @@ $routes->group('instruktur',['filter' => 'Authcek'], function ($routes) {
     $routes->post('kelas/post', 'instruktur\Kelas::post');
     $routes->put('kelas/put', 'instruktur\Kelas::put');
     $routes->get('laporan', 'instruktur\Laporan::index');
+    $routes->get('laporan/download/(:any)', 'instruktur\Laporan::download/$1');
 });
 
 //Siswa

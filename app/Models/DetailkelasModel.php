@@ -19,9 +19,11 @@ class DetailkelasModel extends Model
         `tb_kelas`.`jam_mulai`,
         `tb_kelas`.`jam_selesai`,
         `tb_siswa`.`nama_siswa`,
+        `tb_siswa`.`nis`,
         `tb_detailkelas`.`id`,
         `tb_detailkelas`.`status`,
         `tb_detailkelas`.`id_siswa`,
+        -- `tb_detailkelas`.`nis`,
         `tb_kelas`.`id_program`
       FROM
         `tb_detailkelas`
@@ -97,6 +99,15 @@ class DetailkelasModel extends Model
       RIGHT JOIN `tb_siswa` ON `tb_siswa`.`id_siswa` = `tb_detailkelas`.`id_siswa` WHERE status='Lulus' ORDER BY id DESC")->getResult();
        return $data;
      }
+
+    //  function NisSiswa(){
+    //    $auto = mysqli_query("SELECT max(nis) as max_code from tb_siswa");
+    //    $data = mysqli_fetch_array($auto);
+    //    $code = $data['max_code'];
+    //    $urutan = (int)substr($code, 3000);
+    //    $urutan++;
+    //    $nis = $urutan;
+    //  }
    
 
    

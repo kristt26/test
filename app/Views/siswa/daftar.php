@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template')?>
+<?= $this->extend('layout/template1')?>
 <?= $this->section('content')?>
 <section class="section" ng-controller="daftarController">
     <div class="section-header">

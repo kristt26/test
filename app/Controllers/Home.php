@@ -15,8 +15,10 @@ class Home extends BaseController
     public function index()
     {
         $data['tot_siswa'] = $this->home->tot_siswa();
-        // $data['tot_alumni'] = $this->home->tot_alumni();
-        $data['tot_kelas'] = $this->home->tot_kelas();
+        $data['tot_alumni'] = $this->home->tot_alumni();
+        $data['tot_registrasi'] = $this->home->tot_registrasi();
+        $data['total'] = $this->home->total();
+        // dd($data);
         return view('home',$data);
     }
 }

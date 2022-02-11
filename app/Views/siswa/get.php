@@ -10,10 +10,10 @@
 
             <div class="card-body table-responsive">
                 <table class="table table-striped table-md" id="myTable">
-                    <tbody>
+                    <thead>
                         <tr>
                             <th>No</th>
-                            <th>NIS</th>
+                            <th>NIK</th>
                             <th>Nama</th>
                             <th>Username</th>
                             <th>Password</th>
@@ -22,6 +22,9 @@
                             <th>Opsi</th>
 
                         </tr>
+
+                    </thead>
+                    <tbody>
                         <?php foreach ($siswa as $key => $value) :?>
                         <tr>
                             <td><?= $key +1?></td>

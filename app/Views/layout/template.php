@@ -21,36 +21,10 @@
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/components.css">
     <!-- CSS Libraries -->
+    <link rel="stylesheet" href="<?= base_url('template')?>/assets/DataTable/datatables.min.css">
+    <link rel="stylesheet" href="<?= base_url('template')?>/assets/DataTable/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= base_url('template')?>/assets/DataTable/select.bootstrap4.min.css">
 
-    <script src="<?=base_url()?>/libs/angular/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js"
-        integrity="sha512-JkCv2gG5E746DSy2JQlYUJUcw9mT0vyre2KxE2ZuDjNfqG90Bi7GhcHUjLQ2VIAF1QVsY5JMwA1+bjjU5Omabw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.min.js"
-        integrity="sha512-HdDqpFK+5KwK5gZTuViiNt6aw/dBc3d0pUArax73z0fYN8UXiSozGNTo3MFx4pwbBPldf5gaMUq/EqposBQyWQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-animate/1.8.2/angular-animate.min.js"
-        integrity="sha512-jZoujmRqSbKvkVDG+hf84/X11/j5TVxwBrcQSKp1W+A/fMxmYzOAVw+YaOf3tWzG/SjEAbam7KqHMORlsdF/eA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="<?=base_url()?>/js/apps.js"></script>
-    <script src="<?=base_url()?>/js/services/helper.services.js"></script>
-    <script src="<?=base_url()?>/js/services/auth.services.js"></script>
-    <script src="<?=base_url()?>/js/services/admin.services.js"></script>
-    <script src="<?=base_url()?>/js/services/message.services.js"></script>
-    <script src="<?=base_url()?>/js/controllers/admin.controllers.js"></script>
-
-    <!-- <script src="<?=base_url()?>/libs/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
-    <script src="<?=base_url()?>/libs/swangular/swangular.js"></script>
-    <script src="<?=base_url()?>/libs/angular-datatables/dist/angular-datatables.min.js"></script>
-    <script src="<?=base_url()?>/libs/angular-locale_id-id.js"></script>
-    <script src="<?=base_url()?>/libs/input-mask/angular-input-masks-standalone.min.js"></script>
-    <script src="<?=base_url()?>/libs/jquery.PrintArea.js"></script>
-    <script src="<?=base_url()?>/libs/angular-base64-upload/dist/angular-base64-upload.min.js"></script>
-    <script src="<?=base_url()?>/libs/loading/dist/loadingoverlay.min.js"></script>
-    <script src="<?=base_url()?>/libs/calendar/main.min.js"></script>
-    <script src="<?=base_url()?>/libs/calendar/locales-all.min.js"></script>
-    <script src="<?=base_url()?>/libs/angularjs-currency-input-mask/dist/angularjs-currency-input-mask.min.js">
-    </script>
 
 </head>
 
@@ -92,10 +66,10 @@
             <div class="main-sidebar">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="<?= site_url('home')?>">BUKU INDUK SISWA</a>
+                        <a href="<?= base_url('home')?>">BUKU INDUK SISWA</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="<?= site_url('home')?>">BIS</a>
+                        <a href="<?= base_url('home')?>">BIS</a>
                     </div>
                     <ul class="sidebar-menu">
                         <?= $this->include('layout/menu'); ?>
@@ -132,8 +106,66 @@
 <script src="<?= base_url()?>/template/node_modules/chart.js/dist/Chart.min.js"></script>
 <!-- chart -->
 <script src="<?= base_url()?>/template/node_modules/select2/dist/js/select2.full.min.js"></script>
+<!-- JS Libraies -->
+<script src="<?= base_url('template')?>/assets/DataTable/datatables.min.js"></script>
+<script src="<?= base_url('template')?>/assets/DataTable/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url('template')?>/assets/DataTable/dataTables.select.min.js"></script>
+<script src="<?= base_url('template')?>/assets/DataTable/jquery-ui.min.js"></script>
+<script src="<?= base_url('template')?>/assets/DataTable/modules-datatables.js"></script>
+<script>
+var pesan = "<?= session()->getFlashdata('pesan') ?>";
+const swal = pesan.split(',');
+if (swal.length > 1) {
+    if (swal[0] == 'Success') {
+        Swal.fire({
+            title: 'Success!',
+            text: swal[1],
+            icon: 'success'
+        })
+    } else {
+        Swal.fire({
+            title: 'Error!',
+            text: swal[1],
+            icon: 'error'
+        })
+    }
+}
+</script>
+<script>
+$(document).ready(function() {
+    $('#myTable').DataTable();
+});
+</script>
+<!-- Page Specific JS File -->
+<script src="<?=base_url()?>/libs/angular/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js"
+    integrity="sha512-JkCv2gG5E746DSy2JQlYUJUcw9mT0vyre2KxE2ZuDjNfqG90Bi7GhcHUjLQ2VIAF1QVsY5JMwA1+bjjU5Omabw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.min.js"
+    integrity="sha512-HdDqpFK+5KwK5gZTuViiNt6aw/dBc3d0pUArax73z0fYN8UXiSozGNTo3MFx4pwbBPldf5gaMUq/EqposBQyWQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-animate/1.8.2/angular-animate.min.js"
+    integrity="sha512-jZoujmRqSbKvkVDG+hf84/X11/j5TVxwBrcQSKp1W+A/fMxmYzOAVw+YaOf3tWzG/SjEAbam7KqHMORlsdF/eA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="<?=base_url()?>/js/apps.js"></script>
+<script src="<?=base_url()?>/js/services/helper.services.js"></script>
+<script src="<?=base_url()?>/js/services/auth.services.js"></script>
+<script src="<?=base_url()?>/js/services/admin.services.js"></script>
+<script src="<?=base_url()?>/js/services/message.services.js"></script>
+<script src="<?=base_url()?>/js/controllers/admin.controllers.js"></script>
 
-<!-- angular -->
+<!-- <script src="<?=base_url()?>/libs/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
+<script src="<?=base_url()?>/libs/swangular/swangular.js"></script>
+<script src="<?=base_url()?>/libs/angular-datatables/dist/angular-datatables.min.js"></script>
+<script src="<?=base_url()?>/libs/angular-locale_id-id.js"></script>
+<script src="<?=base_url()?>/libs/input-mask/angular-input-masks-standalone.min.js"></script>
+<script src="<?=base_url()?>/libs/jquery.PrintArea.js"></script>
+<script src="<?=base_url()?>/libs/angular-base64-upload/dist/angular-base64-upload.min.js"></script>
+<script src="<?=base_url()?>/libs/loading/dist/loadingoverlay.min.js"></script>
+<script src="<?=base_url()?>/libs/calendar/main.min.js"></script>
+<script src="<?=base_url()?>/libs/calendar/locales-all.min.js"></script>
+<script src="<?=base_url()?>/libs/angularjs-currency-input-mask/dist/angularjs-currency-input-mask.min.js">
+</script>
 
 
 </html>

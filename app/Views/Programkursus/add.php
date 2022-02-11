@@ -1,3 +1,7 @@
+<?php
+
+use CodeIgniter\Validation\Validation;
+?>
 <?= $this->extend('layout/template')?>
 <?= $this->section('content')?>
 <section class="section">
@@ -18,8 +22,13 @@
                 <form action="<?= base_url('admin/ProgramKursus/save')?>" method="post" autocomplete="off">
                     <?= csrf_field()?>
                     <div class="form-group">
-                        <label>Nama Kelas</label>
-                        <input type="text" name="program_kursus" class="form-control" required autofocus>
+                        <label for="validationServer03" class="form-label">Nama Kelas</label>
+                        <input type="text"
+                            class="form-control <?= ($validation->hasError('program_kursus'))?'is-invalid' : '' ?>"
+                            name="program_kursus" id="validationServer03" aria-describedby="validationServer03Feedback">
+                        <div id="validationServer03Feedback" class="invalid-feedback">
+                            <?= ($validation->getError('program_kursus'))?>
+                        </div>
                     </div>
                     <div>
                         <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Simpan</button>

@@ -13,8 +13,9 @@
 
             <div id="flash" data-flash="<?= session()->getFlashdata('success'); ?>"></div>
             <div class="card-body table-responsive">
-                <table class="table table-striped table-md">
-                    <tbody>
+                <table class="table table-striped table-md" id="myTable">
+                    <thead>
+
                         <tr>
                             <th>No</th>
                             <th>Nama Siswa</th>
@@ -23,6 +24,8 @@
                             <th>Tahun Masuk</th>
                             <th>Keterangan</th>
                         </tr>
+                    </thead>
+                    <tbody>
                         <?php 
                         $no=0
                         ?>

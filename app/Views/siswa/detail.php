@@ -30,7 +30,7 @@
                         <tr>
                             <td style="width: 150px;">NIS</td>
                             <td>:</td>
-                            <td style="width: 400px;"><?= $siswa[0]['id_siswa'] ?></td>
+                            <td style="width: 400px;"><?= $siswa[0]['nis'] ?></td>
                         </tr>
                         <tr>
                             <td>Nama Siswa</td>

@@ -100,11 +100,6 @@ class Siswa extends BaseController
     //     return redirect()->to(site_url('siswa'))->with('success', 'Data Siswa Berhasil DiUbah');
     // }
 
-    // public function print(){
-    //     $data['siswa'] = $this->siswa->getAll; 
-    //     return view('siswa/print',$data);
-    // }
-
-   
+  
     
 }

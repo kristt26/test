@@ -38,8 +38,8 @@ $routes->post('registrasi', 'admin\Siswa::save');
 // $routes->get('registrasi', 'admin\Siswa::get');
 
 //Dashboar Administrasi
-$routes->group('admin',function ($routes) {
-    $routes->get('', 'home::index');
+$routes->group('admin',['filter' => 'Authcek'],function ($routes) {
+    $routes->get('', 'Home::index');
     $routes->get('siswa', 'admin\Siswa::index');
     $routes->get('kelas', 'admin\Kelas::index');
     $routes->get('kelas/add', 'admin\Kelas::create');
@@ -57,6 +57,7 @@ $routes->group('admin',function ($routes) {
     $routes->put('instruktur', 'admin\instruktur::edit');
     
     $routes->get('detailkelas', 'admin\detailkelas::index');
+    $routes->get('detailkelas/nis', 'admin\detailkelas::nis');
     $routes->get('detailkelas/add', 'admin\detailkelas::create');
     $routes->post('detailkelas', 'admin\detailkelas::save');
     $routes->put('detailkelas', 'admin\detailkelas::edit');
@@ -67,7 +68,7 @@ $routes->group('admin',function ($routes) {
 });
 
 // Instruktur
-$routes->group('instruktur', function ($routes) {
+$routes->group('instruktur',['filter' => 'Authcek'], function ($routes) {
     $routes->get('', 'Home::index');
     $routes->get('absen', 'instruktur\Absen::index');
     $routes->get('kelas', 'instruktur\Kelas::index');
@@ -78,7 +79,7 @@ $routes->group('instruktur', function ($routes) {
 });
 
 //Siswa
-$routes->group('siswa', function ($routes) {
+$routes->group('siswa',function ($routes) {
     $routes->get('', 'Home::index');
     $routes->get('biodata', 'siswa\Biodata::index');
     $routes->get('biodata/get', 'siswa\Biodata::read');

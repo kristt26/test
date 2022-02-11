@@ -3,14 +3,14 @@
 <section class="section">
     <div class="section-header">
         <div class="section-header-back">
-            <a href="<?= site_url('siswa')?>" class="btn"><i class="fas fa-arrow-left"></i></a>
+            <a href="<?= base_url('siswa')?>" class="btn"><i class="fas fa-arrow-left"></i></a>
         </div>
         <h1>Edit Biodata Siswa</h1>
 
     </div>
     <div class="section-body">
 
-        <form action="<?= site_url('siswa/update/'.$siswa->NIS)?>" method="post" autocomplete="off">
+        <form action="<?= base_url('siswa/update/'.$siswa->NIS)?>" method="post" autocomplete="off">
             <?= csrf_field()?>
             <div class="card">
                 <div class="card-header">
@@ -187,7 +187,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="reset" class="btn btn-secondary">Reset</button>
-                    <a href="<?= site_url('siswa')?>" type="submit" class="btn btn-danger"><i
+                    <a href="<?= base_url('siswa')?>" type="submit" class="btn btn-danger"><i
                             class="fas fa-arrow-left"></i> </a>
                     <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i> Ubah Data</button>
                 </div>

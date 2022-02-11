@@ -13,11 +13,11 @@
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
     <!-- CSS Libraries -->
-    <!-- <link rel="stylesheet" href="<?= base_url()?>/template/assets/selectric/public/selectric.css"> -->
+    <!-- <link rel="stylesheet" href="<?= base_url() ?>/template/assets/selectric/public/selectric.css"> -->
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/style.css">
-    <link rel="stylesheet" href="<?= base_url()?>/template/assets/css/components.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/template/assets/css/style.css">
+    <link rel="stylesheet" href="<?= base_url() ?>/template/assets/css/components.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
                     <div
                         class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
                         <div class="login-brand">
-                            <img src="<?= base_url()?>/template/assets/img/logo.png" alt="logo" width="150"
+                            <img src="<?= base_url() ?>/template/assets/img/logo.png" alt="logo" width="150"
                                 class="shadow-light rounded-circle">
                         </div>
 
@@ -42,16 +42,17 @@
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label>NIK</label>
-                                        <input type="text" class="form-control" name="nik" autofocus>
+                                        <input type="text" class="form-control" name="nik" autofocus required>
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="last_name">Nama Siswa</label>
-                                        <input id="last_name" type="text" class="form-control" name="nama_siswa">
+                                        <input id="last_name" type="text" class="form-control" name="nama_siswa"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input id="email" type="email" class="form-control" name="email">
+                                    <input id="email" type="email" class="form-control" name="email" required>
                                     <div class="invalid-feedback">
                                     </div>
                                 </div>
@@ -59,11 +60,11 @@
                                     <div class="form-group col-6">
                                         <label for="first_name">Username</label>
                                         <input id="first_name" type="text" class="form-control" name="username"
-                                            autofocus>
+                                            autofocus required>
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="last_name">Password</label>
-                                        <input id="last_name" type="text" class="form-control" name="password">
+                                        <input id="last_name" type="text" class="form-control" name="password" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -72,12 +73,12 @@
                                     </button>
                                 </div>
                                 <div class="mt-5 text-muted text-center">
-                                    Sudah punya akun? <a href="<?= site_url('/')?>">Login</a>
+                                    Sudah punya akun? <a href="<?= base_url('/') ?>">Login</a>
                                 </div>
                             </div>
                         </div>
                         <div class="simple-footer">
-                            Copyright &copy; Stisla 2018
+                            Copyright &copy; Sentra Komputer
                         </div>
                     </div>
                 </div>
@@ -94,20 +95,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <!-- <script src="<?= base_url()?>/template/assets/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script> -->
-    <script src="<?= base_url()?>/template/assets/js/stisla.js"></script>
+    <!-- <script src="<?= base_url() ?>/template/assets/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script> -->
+    <script src="<?= base_url() ?>/template/assets/js/stisla.js"></script>
 
 
     <!-- JS Libraies -->
-    <script src="<?= base_url()?>/template/assets/jquery-pwstrength/jquery.pwstrength.min.js"></script>
-    <script src="<?= base_url()?>/template/assets/selectric/public/jquery.selectric.min.js"></script>
+    <script src="<?= base_url() ?>/template/assets/jquery-pwstrength/jquery.pwstrength.min.js"></script>
+    <script src="<?= base_url() ?>/template/assets/selectric/public/jquery.selectric.min.js"></script>
 
     <!-- Template JS File -->
-    <script src="<?= base_url()?>/template/assets/js/scripts.js"></script>
-    <script src="<?= base_url()?>/template/assets/js/custom.js"></script>
+    <script src="<?= base_url() ?>/template/assets/js/scripts.js"></script>
+    <script src="<?= base_url() ?>/template/assets/js/custom.js"></script>
 
     <!-- Page Specific JS File -->
-    <script src="<?= base_url()?>/template/assets/js/page/auth-register.js"></script>
+    <script src="<?= base_url() ?>/template/assets/js/page/auth-register.js"></script>
 </body>
 
 </html>

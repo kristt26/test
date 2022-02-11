@@ -15,6 +15,6 @@ var gagal = $('#gagal').data('gagal');
     Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Username dan Password Tidak Ditemukan',
+        text: gagal
     })
 }

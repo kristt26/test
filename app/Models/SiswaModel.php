@@ -9,10 +9,10 @@ class SiswaModel extends Model
     protected $table            = 'tb_siswa';
     protected $primaryKey       = 'id_siswa';
     protected $returnType       = 'object';
-    protected $allowedFields    = ['nik', 'nis','nama_siswa','jenis_kelamin','tempat_lahir','tanggal_lahir','agama','alamat',
+    protected $allowedFields    = ['NIK','nama_siswa','jenis_kelamin','tempat_lahir','tanggal_lahir','agama','alamat',
                                 'dusun','wilaya','kabupaten_kota','kecamatan','kelurahan','jenis_tinggal','transportasi',
                                 'nohp','nama_ayah','pekerjaan_ayah','nama_ibu','pekerjaan_ibu','upload_foto3x4',
-                                'upload_ijazah','upload_ktp','tahun_masuk','id_user'];
+                                'upload_ijazah','upload_ktp','tahun_masuk','id_user','nis'];
   
   
     public function getUser(){
@@ -29,13 +29,49 @@ class SiswaModel extends Model
         return $data;
     }
    
-   public function detail($id_siswa= null){
-     $data = $this->db->query("SELECT
+    public function detail($id_siswa= null){
+      if($id_siswa === null){
+        return  $this->db->query("SELECT
+        `tb_siswa`.*
+      FROM
+        `tb_siswa` ")->getResult();
+      }
+      $data = $this->db->query("SELECT
+      `tb_siswa`.*
+    FROM
+      `tb_siswa` WHERE id_siswa = $id_siswa ORDER BY nis DESC")->getResultArray();
+      return $data;
+    }
+ 
+    public function siswa($id_siswa = false)
+    {
+      # code...
+      if($id_siswa == false){
+        return $this->findAll();
+      }
+     //  return $this->where([$id_siswa => 'id_siswa'])->find();
+     return   $this->db->query("SELECT
      `tb_siswa`.*
    FROM
      `tb_siswa` WHERE id_siswa = $id_siswa")->getResultArray();
-     return $data;
-   }
+    }
+    
+    public function PenomoranNis(){
+      $kode = $this->db->table('tb_siswa')
+      ->select('RIGHT(nis,4) as nis', false)
+      ->orderBy('nis','DESC')
+      ->limit(1)->get()->getRowArray();
+ 
+      if ($kode['nis']==null) {
+        $no=1;
+      }else{
+        $no = intval($kode['nis'])+ 1;
+      }
+ 
+      $batas= str_pad($no, 4, "0", STR_PAD_LEFT);
+      $nis = $batas;
+      return $nis;
+    } 
  
     
     

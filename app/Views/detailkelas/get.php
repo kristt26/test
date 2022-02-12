@@ -52,9 +52,11 @@
                                 <?php if($value->status == 'Registrasi'): ?>
                                 <form action="<?= base_url('admin/detailkelas/updateaktif/' . $value->id)?>"
                                     method="post">
+                                    <!-- <input type="text" value=" $PenomoranNis ?>"> -->
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="idsiswa" value="<?=  $value->id_siswa ?>">
-                                    <input type="hidden" name="nislama" value="<?=  $value->nis ?>">
+                                    <input type="hidden" name="nislama" value="<?=  $value->nis?>">
+                                    <input type="hidden" name="nis" value="<?=  $PenomoranNis?>">
                                     <button type="submit" class="btn btn-success btn-sm"><i
                                             class="fas fa-check"></i></button>
                                 </form>

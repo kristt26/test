@@ -23,6 +23,8 @@ class Detailkelas extends BaseController
     {
         $data =[
             'detailkelas' => $this->detailkelas->getDetail(),
+            'PenomoranNis' => $this->siswa->PenomoranNis(),
+
         ];
         // dd($data);
         return view('detailkelas/get',$data);
@@ -45,16 +47,22 @@ class Detailkelas extends BaseController
     $ceknis = $this->request->getVar('nislama');
     $id_siswa = $this->request->getVar('idsiswa');
     // dd($ceknis);
-    if($ceknis == null){
-        return redirect()->to(base_url('/admin/detailkelas/nis/' . $id_siswa));
-    }else{
+    // if($ceknis == null){
+    //     return redirect()->to(base_url('/admin/detailkelas/nis/' . $id_siswa));
+    // }else{
+    //     $ceknis;
+    // }
+
+    if(!empty($ceknis)){
         $ceknis;
+    }else{
+        $ceknis = $this->request->getVar('nis');
     }
     
     $this->siswa->save([
         'id_siswa' => $this->request->getVar('idsiswa'),
         // 'nis' => 123456789,
-        'nis' => $ceknis ,
+        'nis' => $ceknis,
     ]);
     $datas = [
         'status' => 'Aktif',
@@ -66,12 +74,13 @@ class Detailkelas extends BaseController
     }
     public function nis($id_siswa)
     {
-        # code...
+        
        
         $data = [
             'validation' => \Config\Services::validation(),
             'idsiswa' => $this->siswa->detail($id_siswa),
             'siswa' => $this->siswa->detail(),
+            'PenomoranNis' => $this->siswa->PenomoranNis(),
         ];
         // dd($data['id_siswa']);
         return view('detailkelas/tambahnis', $data);
@@ -99,6 +108,11 @@ class Detailkelas extends BaseController
             'id_siswa' => $id_siswa,
             'nis'=> $this->request->getVar('nis')
         ]);
+        $datas = [
+            'status' => 'Aktif',
+        ];
+        $detail = $this->detailkelas->where('id_siswa', $id_siswa); 
+        $this->detailkelas->update($detail->id_siswa, $datas);
         session()->setFlashdata('pesan', 'Success, NIS Berhasil Di Tambah');
         return redirect()->to('admin/detailkelas');
 

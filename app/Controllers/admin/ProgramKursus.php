@@ -10,6 +10,7 @@ class ProgramKursus extends BaseController
     function __construct()
     {
         $this->programkursus = new ProgramKursusModel();
+        session()->set(['active' => 'programkursus']);
         helper('form');
     }
     public function index()

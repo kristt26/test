@@ -12,13 +12,12 @@
             <div class="card-body table-responsive">
                 <?php foreach ($idsiswa as $s => $value):?>
                 <form action="<?= base_url('admin/detailkelas/savenis/'.$value['id_siswa'])?>" method="POST">
-
                     <div class="row">
                         <div class="col-sm-6">
                             <input type="text"
                                 class="form-control  <?= ($validation->hasError('nis'))?'is-invalid' : '' ?>" name="nis"
-                                placeholder="Masukan Nis">
-                            <div id="validationServer03Feedback" class="invalid-feedback">
+                                value="<?= $PenomoranNis?>" readonly>
+                            <div id=" validationServer03Feedback" class="invalid-feedback">
                                 <?= ($validation->getError('nis'))?>
                             </div>
                         </div>

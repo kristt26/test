@@ -1,25 +1,25 @@
         <div class="section-body">
-            </div>
-            <div class="card-header">
-                <table align="right">
-                    <tbody align="center">
-                        <?php foreach ($siswa as $value) :?>
-                        <tr>
-                            <td>Nomor Induks Siswa</td>
-                        </tr>
-                        <tr>
-                            <td><?= $value->NIS?></td>
-                        </tr>
-                    </tbody>
-                    </table>
+        </div>
+        <div class="card-header">
+            <table align="right">
+                <tbody align="center">
+                    <?php foreach ($siswa as $value) :?>
+                    <tr>
+                        <td>Nomor Induks Siswa</td>
+                    </tr>
+                    <tr>
+                        <td><?= $value->NIS?></td>
+                    </tr>
+                </tbody>
+            </table>
             <div class="card">
-                    <h1 align="center">BIODATA SISWA</h1>
-                    <h3 align="center">YAYASAN SENTRA ANUGRAH MANDIRI</h3>
-                  <br>
-                  <div class="card-body ">
-                     
+                <h1 align="center">BIODATA SISWA</h1>
+                <h3 align="center">YAYASAN SENTRA ANUGRAH MANDIRI</h3>
+                <br>
+                <div class="card-body ">
+
                     <label><b> A. DATA SISWA</b></label>
-                 
+
                     <table>
                         <tr>
                             <td>NIK</td>
@@ -136,15 +136,15 @@
                             <td>:</td>
                             <td><?= $value->tahun_masuk?></td>
                         </tr>
-                    <?php endforeach;?>
+                        <?php endforeach;?>
 
                     </table>
-               
-                   
-                  </div>
-                         
+
+
+                </div>
+
             </div>
         </div>
         <script type="text/javascript">
-                        window.print();
-                    </script>
+window.print();
+        </script>

@@ -39,7 +39,7 @@ class SiswaModel extends Model
       $data = $this->db->query("SELECT
       `tb_siswa`.*
     FROM
-      `tb_siswa` WHERE id_siswa = $id_siswa ORDER BY nis DESC")->getResultArray();
+      `tb_siswa` WHERE id_siswa = $id_siswa ORDER BY nis DESC")->getRowArray();
       return $data;
     }
  

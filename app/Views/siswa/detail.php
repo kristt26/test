@@ -30,44 +30,44 @@
                         <tr>
                             <td style="width: 150px;">NIS</td>
                             <td>:</td>
-                            <td style="width: 400px;"><?= $siswa[0]['nis'] ?></td>
+                            <td style="width: 400px;"><?= $siswa['nis'] ?></td>
                         </tr>
                         <tr>
                             <td>Nama Siswa</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['nama_siswa'] ?></td>
+                            <td><?= $siswa['nama_siswa'] ?></td>
                         </tr>
                         <tr>
                             <td>NIK</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['nik'] ?></td>
+                            <td><?= $siswa['nik'] ?></td>
                         </tr>
                         <tr>
                             <td>Tempat Tanggal Lahir</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['tempat_lahir'] ?>,
-                                <?= $siswa[0]['tanggal_lahir'] ?>
+                            <td><?= $siswa['tempat_lahir'] ?>,
+                                <?= $siswa['tanggal_lahir'] ?>
                             </td>
                         </tr>
                         <tr>
                             <td>Agama</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['agama'] ?></td>
+                            <td><?= $siswa['agama'] ?></td>
                         </tr>
                         <tr>
                             <td>Jenis Kelamin</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['jenis_kelamin'] ?></td>
+                            <td><?= $siswa['jenis_kelamin'] ?></td>
                         </tr>
                         <tr>
                             <td>Transportasi</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['transportasi'] ?></td>
+                            <td><?= $siswa['transportasi'] ?></td>
                         </tr>
                         <tr>
                             <td>Nomor HP</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['nohp'] ?></td>
+                            <td><?= $siswa['nohp'] ?></td>
                         </tr>
                     </table><br>
                     <label><b>B. DATA ALAMAT</b></label>
@@ -75,37 +75,37 @@
                         <tr>
                             <td style="width: 150px;">Jenis Tinggal</td>
                             <td>:</td>
-                            <td style="width: 400px;"><?= $siswa[0]['jenis_tinggal'] ?></td>
+                            <td style="width: 400px;"><?= $siswa['jenis_tinggal'] ?></td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['alamat'] ?></td>
+                            <td><?= $siswa['alamat'] ?></td>
                         </tr>
                         <tr>
                             <td>Nama Dusun</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['dusun'] ?></td>
+                            <td><?= $siswa['dusun'] ?></td>
                         </tr>
                         <tr>
                             <td>Wilaya</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['wilaya'] ?></td>
+                            <td><?= $siswa['wilaya'] ?></td>
                         </tr>
                         <tr>
                             <td>Kabupaten / Kota</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['kabupaten_kota'] ?></td>
+                            <td><?= $siswa['kabupaten_kota'] ?></td>
                         </tr>
                         <tr>
                             <td>Kecamatan</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['kecamatan'] ?></td>
+                            <td><?= $siswa['kecamatan'] ?></td>
                         </tr>
                         <tr>
                             <td>Kelurahan</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['kelurahan'] ?></td>
+                            <td><?= $siswa['kelurahan'] ?></td>
                         </tr>
                     </table><br>
                     <label><b>C. DATA ORANG TUA</b></label>
@@ -113,29 +113,69 @@
                         <tr>
                             <td style="width: 150px;">Nama Ayah</td>
                             <td>:</td>
-                            <td style="width: 400px;"><?= $siswa[0]['nama_ayah'] ?></td>
+                            <td style="width: 400px;"><?= $siswa['nama_ayah'] ?></td>
                         </tr>
                         <tr>
                             <td>Pekerjaan Ayah</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['pekerjaan_ayah'] ?></td>
+                            <td><?= $siswa['pekerjaan_ayah'] ?></td>
                         </tr>
                         <tr>
                             <td>Nama Ibu</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['nama_ibu'] ?></td>
+                            <td><?= $siswa['nama_ibu'] ?></td>
                         </tr>
                         <tr>
                             <td>Pekerjaan Ibu</td>
                             <td>:</td>
-                            <td><?= $siswa[0]['pekerjaan_ibu'] ?></td>
+                            <td><?= $siswa['pekerjaan_ibu'] ?></td>
                         </tr>
                     </table><br>
+                    <label><b>C. DATA KURSUS</b></label>
+
 
                 </form>
+
             </div>
 
         </div>
+    </div>
+    <div class="section-body">
+        <div class="card">
+
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-md" id="myTable">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Program Kursus</th>
+                            <th>Jam Kursus</th>
+                            <th>Waktu</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                        $no=1;
+                        ?>
+                        <?php foreach ($detailkelas as $key => $value) :?>
+                        <?php if ($value->id_siswa == $siswa['id_siswa']):?>
+
+                        <tr>
+                            <td><?= $no++?></td>
+                            <td><?= $value->program_kursus?></td>
+                            <td><?= $value->jam_mulai?> - <?= $value->jam_selesai?></td>
+                            <td><?= $value->waktu?> </td>
+                            <td><?= $value->status?></td>
+                        </tr>
+                        <?php endif?>
+                        <?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
     </div>
 </section>
 <?= $this->endSection() ?>

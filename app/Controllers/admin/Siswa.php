@@ -6,6 +6,7 @@ use App\Models\SiswaModel;
 use App\Models\UserModel;
 use App\Models\ProgramKursusModel;
 use App\Models\KelasModel;
+use App\Models\DetailkelasModel;
 
 class Siswa extends BaseController
 {
@@ -15,6 +16,7 @@ class Siswa extends BaseController
         $this->user = new UserModel();
         $this->programkursus = new ProgramKursusModel();
         $this->kelas = new KelasModel();
+        $this->detailkelas = new DetailkelasModel();
         session()->set(['active' => 'siswa']);
         helper('form');
     }
@@ -23,17 +25,17 @@ class Siswa extends BaseController
     {
         
         $data = [
-
             'siswa' => $this->siswa->getUser(),
         ];
+        // dd($data);      
         return view('siswa/get',$data);
     }
 
     public function detail($id_siswa= null)
     {
         $data=[
-            'siswa' => 
-            $this->siswa->detail($id_siswa),
+            'detailkelas'=> $this->detailkelas->getDetail(),
+            'siswa' => $this->siswa->detail($id_siswa),
         ];
         // dd($data);  
         return view('siswa/detail',$data);

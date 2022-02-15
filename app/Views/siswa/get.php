@@ -13,33 +13,31 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>NIK</th>
+                            <th>NIS</th>
                             <th>Nama</th>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Email</th>
-                            <th>Akses</th>
+                            <th>Tempat Tanggal Lahir</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
                             <th>Opsi</th>
-
                         </tr>
-
                     </thead>
                     <tbody>
                         <?php foreach ($siswa as $key => $value) :?>
+                        <?php if ($value->nis != null):?>
                         <tr>
                             <td><?= $key +1?></td>
-                            <td><?= $value->nik?></td>
+                            <td><?= $value->nis?></td>
                             <td><?= $value->nama_siswa?></td>
-                            <td><?= $value->username?></td>
-                            <td><?= $value->password?></td>
-                            <td><?= $value->email?></td>
-                            <td><?= $value->akses?></td>
+                            <td><?= $value->tempat_lahir?>, <?= $value->tanggal_lahir?></td>
+                            <td><?= $value->jenis_kelamin?></td>
+                            <td><?= $value->alamat?></td>
 
                             <td>
                                 <a href="<?= base_url('admin/siswa/detail/'. $value->id_siswa)?>"
                                     class="btn btn-primary btn-sm"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
+                        <?php endif?>
                         <?php endforeach;?>
                     </tbody>
                 </table>

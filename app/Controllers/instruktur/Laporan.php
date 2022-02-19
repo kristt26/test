@@ -65,9 +65,7 @@ class Laporan extends BaseController
             $pdf->writeHTML($html, true, false, true, false, '');
             // $pdf->Cell(0, 0, 'A4 LANDSCAPE', 1, 1, 'C');
             $start+9;
-            
-        }
-        
+            }
         $this->response->setContentType('application/pdf');
         $pdf->Output(date('dmyhis').'.pdf', 'i');
     }
